@@ -68,7 +68,9 @@ export async function verifySmtpConnection() {
     console.log("[mail] SMTP connection verified.");
     return true;
   } catch (error) {
-    console.warn("[mail] SMTP verify failed:", error.message);
+    console.error(
+      `[mail] SMTP verify failed — host=${env.email.host} port=${env.email.port} secure=${env.email.secure} user=${env.email.user}: ${error.message}`
+    );
     return false;
   }
 }

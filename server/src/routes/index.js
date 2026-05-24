@@ -9,7 +9,7 @@ import contactRoutes from "./contactRoutes.js";
 
 const router = Router();
 
-router.get("/health", getHealth);
+router.get("/health", (req, res, next) => getHealth(req, res).catch(next));
 router.use("/public", publicRoutes);
 router.use("/contact", contactRoutes);
 router.use("/newsletter", newsletterRoutes);

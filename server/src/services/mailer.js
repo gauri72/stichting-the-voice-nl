@@ -979,7 +979,12 @@ export async function sendDonationEmails(payload) {
     );
   }
 
-  await Promise.allSettled(tasks);
+  const results = await Promise.allSettled(tasks);
+  results.forEach((r, i) => {
+    if (r.status === "rejected") {
+      console.error(`[mailer] Donation email task ${i} failed:`, r.reason?.message || r.reason);
+    }
+  });
   return { skipped: false };
 }
 
@@ -1062,6 +1067,11 @@ export async function sendSponsorshipEmails(payload) {
     );
   }
 
-  await Promise.allSettled(tasks);
+  const results = await Promise.allSettled(tasks);
+  results.forEach((r, i) => {
+    if (r.status === "rejected") {
+      console.error(`[mailer] Sponsorship email task ${i} failed:`, r.reason?.message || r.reason);
+    }
+  });
   return { skipped: false };
 }

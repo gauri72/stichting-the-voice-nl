@@ -5,6 +5,7 @@ import { getStripe, isStripeConfigured } from "../services/stripe.js";
 import { sendDonationEmails, sendSponsorshipEmails } from "../services/mailer.js";
 import { recordSucceededPaymentIntent } from "../services/paymentRecordService.js";
 import { buildReceiptNumber } from "../utils/receiptNumber.js";
+import { isMailerConfigured, getSmtpTransporter, verifySmtpConnection } from "../services/smtpTransport.js";
 
 // In-memory guard so we don't email twice if both webhook and client confirmation fire.
 const emailedIntents = new Set();
@@ -307,4 +308,76 @@ export async function stripeWebhook(req, res) {
   }
 
   return res.json({ received: true });
+}
+
+// Debug endpoint — sends a plain test email to ORG_NOTIFY_EMAIL.
+// Only works when NODE_ENV !== "production" OR when a ?secret= token matches ORG_NOTIFY_EMAIL hash.
+// Usage: POST /api/payments/test-email  { "to": "optional@override.com" }
+export async function testEmail(req, res) {
+  if (!isMailerConfigured()) {
+    return res.status(503).json({
+      ok: false,
+      step: "config_check",
+      error: "SMTP not configured — check EMAIL_HOST, EMAIL_USER, EMAIL_PASS, EMAIL_FROM env vars.",
+      smtp: {
+        host: env.email.host || null,
+        port: env.email.port || null,
+        secure: env.email.secure,
+        user: env.email.user || null,
+        from: env.email.from || null
+      }
+    });
+  }
+
+  // In production require a simple secret guard to avoid open relay abuse.
+  if (env.nodeEnv === "production") {
+    const secret = req.query.secret || req.body?.secret;
+    const expected = env.email.orgNotify || env.org.contactEmail;
+    if (!secret || secret !== expected) {
+      return res.status(403).json({ ok: false, error: "Pass ?secret=<ORG_NOTIFY_EMAIL> to use this in production." });
+    }
+  }
+
+  const to = String(req.body?.to || env.email.orgNotify || env.org.contactEmail || "").trim();
+  if (!to) {
+    return res.status(400).json({ ok: false, error: "No recipient — set ORG_NOTIFY_EMAIL or pass { to } in body." });
+  }
+
+  // Step 1: verify SMTP connection
+  let reachable = false;
+  let verifyError = null;
+  try {
+    reachable = await verifySmtpConnection();
+  } catch (err) {
+    verifyError = err.message;
+  }
+
+  if (!reachable) {
+    return res.status(502).json({
+      ok: false,
+      step: "smtp_verify",
+      error: verifyError || "SMTP server unreachable or auth failed — check host/port/credentials.",
+      smtp: { host: env.email.host, port: env.email.port, secure: env.email.secure }
+    });
+  }
+
+  // Step 2: send the actual email
+  try {
+    const tx = getSmtpTransporter();
+    await tx.sendMail({
+      from: env.email.from,
+      to,
+      subject: "VOICE NL — SMTP test email",
+      text: `This is a test email sent at ${new Date().toISOString()}.\n\nIf you received this, SMTP is working correctly.\n\nConfig:\n  HOST: ${env.email.host}\n  PORT: ${env.email.port}\n  SECURE: ${env.email.secure}\n  FROM: ${env.email.from}`
+    });
+    return res.status(200).json({ ok: true, step: "sent", to, from: env.email.from });
+  } catch (err) {
+    console.error("[test-email] Send failed:", err.message);
+    return res.status(502).json({
+      ok: false,
+      step: "send",
+      error: err.message,
+      smtp: { host: env.email.host, port: env.email.port, secure: env.email.secure }
+    });
+  }
 }
