@@ -1,4 +1,3 @@
-import heroBgLight from "../assets/Home/hero-bg-light.png";
 import heroBgDark from "../assets/Home/hero-bg-dark.png";
 import vosFeatured from "../assets/Stories/vision-of-sounds/vision-of-sounds-featured.png";
 import vosArtistStories from "../assets/Stories/vision-of-sounds/vision-of-sounds-artist-stories.png";
@@ -13,35 +12,6 @@ import vovTedTalks from "../assets/Stories/voice-of-visionaries/voice-of-visiona
 import vovPodcasts from "../assets/Stories/voice-of-visionaries/voice-of-visionaries-podcasts.png";
 import vovLeadership from "../assets/Stories/voice-of-visionaries/voice-of-visionaries-leadership.png";
 import vovInnovation from "../assets/Stories/voice-of-visionaries/voice-of-visionaries-innovation.png";
-
-export const STORIES_HERO = {
-  titleLead: "Stories That",
-  titleAccent: "Inspire",
-  description:
-    "Discover the people, journeys and ideas shaping the V.O.I.C.E. NL movement.",
-  imageLight: heroBgLight,
-  imageDark: heroBgDark,
-  quickLinks: [
-    {
-      key: "vision-of-sounds",
-      icon: "music",
-      logo: visionOfSoundsLogo,
-      title: "Vision Of Sounds",
-      subtitle: "Explore Stories",
-      accent: "teal",
-      to: "/stories#stories-vision-of-sounds",
-    },
-    {
-      key: "voice-of-visionaries",
-      icon: "microphone",
-      logo: voiceOfVisionariesLogo,
-      title: "Voice Of Visionaries",
-      subtitle: "Explore Conversations",
-      accent: "purple",
-      to: "/stories#stories-voice-of-visionaries",
-    },
-  ],
-};
 
 export const STORIES_PILLARS = [
   {

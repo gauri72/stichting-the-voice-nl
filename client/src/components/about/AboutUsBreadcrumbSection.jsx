@@ -1,21 +1,16 @@
-import { Link } from "react-router-dom";
-import { IconChevronRight, IconHome } from "@tabler/icons-react";
-import "../../styles/about-us-page.css";
+import heroBgLight from "../../assets/Home/hero-bg-light.png";
+import heroBgDark from "../../assets/Home/hero-bg-dark.png";
+import BreadcrumbPageHeader from "../layout/BreadcrumbPageHeader.jsx";
+import "../../styles/about-us-breadcrumb-section.css";
 
 export default function AboutUsBreadcrumbSection() {
   return (
-    <nav className="about-us-breadcrumb" aria-label="Breadcrumb">
-      <Link to="/" className="about-us-breadcrumb__home" aria-label="Home">
-        <IconHome size={16} stroke={1.8} aria-hidden />
-      </Link>
-      <IconChevronRight className="about-us-breadcrumb__sep" size={14} stroke={2} aria-hidden />
-      <Link to="/" className="about-us-breadcrumb__link">
-        Home
-      </Link>
-      <IconChevronRight className="about-us-breadcrumb__sep" size={14} stroke={2} aria-hidden />
-      <span className="about-us-breadcrumb__current" aria-current="page">
-        About Us
-      </span>
-    </nav>
+    <BreadcrumbPageHeader
+      ariaLabel="About Us"
+      lightSrc={heroBgLight}
+      darkSrc={heroBgDark}
+      heroClassName="about-us-page-hero"
+      fetchPriority="high"
+    />
   );
 }

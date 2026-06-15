@@ -11,8 +11,8 @@ export default function HomePage() {
     <div className="home-page">
       <Hero />
       <FeaturedEventsSection />
-      <GetInvolvedSection />
       <OurPillarsSection />
+      <GetInvolvedSection />
       <ImpactStatsBar />
       <SponsorsSection />
     </div>

@@ -7,33 +7,13 @@
 }
 
 [data-theme="dark"] .site-header {
-  background-color: #000000;
-  border-bottom-color: #1a1a1a;
+  background-color: transparent;
+  border-bottom-color: transparent;
 }
 
-/* Header brand — white on dark theme only */
-[data-theme="dark"] .brand-name-top,
-[data-theme="dark"] .brand-name .brand-name-top,
-[data-theme="dark"] .mobile-brand-name .brand-name-top {
-  color: #ffffff;
-  -webkit-text-stroke: 0.45px rgba(255, 255, 255, 0.35);
-  text-shadow:
-    0.4px 0 rgba(255, 255, 255, 0.5),
-    -0.4px 0 rgba(255, 255, 255, 0.5);
-}
-
-[data-theme="dark"] .brand-name-bottom,
-[data-theme="dark"] .brand-name .brand-name-bottom,
-[data-theme="dark"] .mobile-brand-name .brand-name-bottom {
-  color: #ffffff;
-  background: none;
-  -webkit-background-clip: initial;
-  background-clip: initial;
-  -webkit-text-stroke: 0.55px rgba(255, 255, 255, 0.4);
-  text-shadow:
-    0.5px 0 rgba(255, 255, 255, 0.55),
-    -0.5px 0 rgba(255, 255, 255, 0.55),
-    0 0.4px rgba(255, 255, 255, 0.45);
+[data-theme="dark"] .site-header .menu-links a,
+[data-theme="dark"] .site-header .menu-dropdown-trigger {
+  text-shadow: 0 1px 10px rgba(0, 0, 0, 0.55);
 }
 
 /* Section-level dark mode tweaks */

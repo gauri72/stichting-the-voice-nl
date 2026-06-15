@@ -1,8 +1,6 @@
 import { useState } from "react";
 import { Link, NavLink } from "react-router-dom";
-import { IconLayoutDashboard, IconTicket, IconUser } from "@tabler/icons-react";
-import { useAuth } from "../../contexts/AuthContext.jsx";
-import headerLogo from "../../assets/header-logo.png";
+import { IconTicket, IconUser, IconUserPlus } from "@tabler/icons-react";
 import ThemeToggle from "./ThemeToggle.jsx";
 
 const BUY_TICKETS_URL =
@@ -10,7 +8,6 @@ const BUY_TICKETS_URL =
 
 const NAV_ITEMS = [
   { label: "Home", to: "/", end: true },
-  { label: "Become A Member", to: "/membership" },
   {
     label: "Our Pillars",
     children: [
@@ -23,6 +20,7 @@ const NAV_ITEMS = [
   {
     label: "Partner With Us",
     children: [
+      { label: "Become A Member", to: "/membership" },
       { label: "Sponsor Us", to: "/sponsorship" },
       { label: "Donate", to: "/donate" },
     ],
@@ -80,46 +78,47 @@ export default function Header() {
     </>
   );
 
-  const buyTicketsCta = (extraClass = "") => (
+  const memberCta = (
+    <Link
+      className="donate-button nav-toolbar__cta-member"
+      to="/membership"
+      onClick={closeMenu}
+    >
+      <IconUserPlus className="nav-toolbar__cta-icon" aria-hidden stroke={1.75} />
+      <span>Become A Member</span>
+    </Link>
+  );
+
+  const buyTicketsCta = (
     <a
-      className={`donate-button buy-tickets-button ${extraClass}`.trim()}
+      className="donate-button buy-tickets-button"
       href={BUY_TICKETS_URL}
       target="_blank"
       rel="noopener noreferrer"
       onClick={closeMenu}
       aria-label="Buy tickets on Ticket Tailor"
     >
-      <IconTicket className="buy-tickets-icon" aria-hidden stroke={1.75} />
+      <IconTicket className="nav-toolbar__cta-icon buy-tickets-icon" aria-hidden stroke={1.75} />
       <span>Buy Tickets</span>
     </a>
   );
 
-  const authCta = (extraClass = "") => (
-    <Link className={`auth-button ${extraClass}`.trim()} to="/my-account" onClick={closeMenu}>
-      <IconUser className="auth-button-icon" aria-hidden stroke={1.75} />
-      <span>Log in or sign up</span>
+  const authCta = (
+    <Link className="donate-button auth-button nav-toolbar__cta-auth" to="/my-account" onClick={closeMenu}>
+      <IconUser className="nav-toolbar__cta-icon auth-button-icon" aria-hidden stroke={1.75} />
+      <span>Log In Or Sign Up</span>
     </Link>
   );
 
   return (
     <header className="site-header">
-      <nav className="site-navbar">
-        <Link className="brand-block" to="/" aria-label="Go to home page" onClick={closeMenu}>
-          <img className="brand-logo" src={headerLogo} alt="Stichting The V.O.I.C.E. NL logo" />
-          <div className="brand-name">
-            <p className="brand-name-top">STICHTING</p>
-            <p className="brand-name-bottom">
-              THE V<span className="brand-tight-v-period">.</span>O.I.C.E. NL
-            </p>
-          </div>
-        </Link>
-
-        <div className="nav-center">
-          <div className="menu-links">{navLinks}</div>
-        </div>
-
-        <div className="nav-mobile-bar">
-          {buyTicketsCta("buy-tickets-bar")}
+      <nav className="site-navbar" aria-label="Main">
+        <div className="nav-toolbar">
+          <div className="menu-links menu-links--desktop">{navLinks}</div>
+          {memberCta}
+          {buyTicketsCta}
+          {authCta}
+          <ThemeToggle />
           <button
             className="menu-toggle"
             type="button"
@@ -139,29 +138,7 @@ export default function Header() {
             <span />
           </button>
 
-          <Link className="mobile-brand-block" to="/" aria-label="Go to home page" onClick={closeMenu}>
-            <img className="mobile-brand-logo" src={headerLogo} alt="Stichting The V.O.I.C.E. NL logo" />
-            <div className="mobile-brand-name">
-              <p className="brand-name-top">STICHTING</p>
-              <p className="brand-name-bottom">
-                THE V<span className="brand-tight-v-period">.</span>O.I.C.E. NL
-              </p>
-            </div>
-          </Link>
-
           <div className="menu-links menu-links--mobile">{navLinks}</div>
-
-          {authCta("auth-button-menu")}
-
-          <div className="nav-actions-theme-wrap">
-            <ThemeToggle className="theme-toggle--mobile" />
-          </div>
-        </div>
-
-        <div className="nav-right">
-          {buyTicketsCta("donate-button-desktop")}
-          {authCta("auth-button-desktop")}
-          <ThemeToggle className="theme-toggle--desktop" />
         </div>
       </nav>
     </header>

@@ -5,7 +5,6 @@ import {
   IconCurrencyEuro,
   IconHandLoveYou,
   IconHeartHandshake,
-  IconUsersGroup,
   IconX,
 } from "@tabler/icons-react";
 import VolunteerForm from "../volunteer/VolunteerForm";
@@ -13,13 +12,6 @@ import "../../styles/get-involved-section.css";
 import "../../styles/volunteer-page.css";
 
 const linkCards = [
-  {
-    title: "Become A Member",
-    description: "Join our community and be part of the movement.",
-    to: "/membership",
-    accent: "teal",
-    Icon: IconUsersGroup,
-  },
   {
     title: "Sponsor Us",
     description: "Partner with us and create lasting impact together.",

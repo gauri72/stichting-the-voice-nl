@@ -53,38 +53,6 @@
   letter-spacing: 0.04em;
 }
 
-.innovation-breadcrumb {
-  display: flex;
-  align-items: center;
-  flex-wrap: wrap;
-  gap: 6px;
-  padding: 12px clamp(14px, 3vw, 28px) 0;
-  font-size: 0.78rem;
-  font-weight: 600;
-}
-
-.innovation-breadcrumb__home,
-.innovation-breadcrumb__link {
-  display: inline-flex;
-  align-items: center;
-  color: var(--in-muted);
-  text-decoration: none;
-}
-
-.innovation-breadcrumb__home:hover,
-.innovation-breadcrumb__link:hover {
-  color: var(--in-cyan);
-}
-
-.innovation-breadcrumb__sep {
-  color: var(--in-muted);
-  flex-shrink: 0;
-}
-
-.innovation-breadcrumb__current {
-  color: var(--in-cyan);
-}
-
 .innovation-hero {
   padding: clamp(12px, 2vw, 18px) clamp(14px, 3vw, 28px) clamp(18px, 3vw, 28px);
 }
@@ -614,23 +582,12 @@
 }
 
 @media (max-width: 719px) {
-  .innovation-breadcrumb,
   .innovation-hero,
   .innovation-digital,
   .innovation-initiatives,
   .innovation-deliver,
   .innovation-cta {
     padding-inline: 16px;
-  }
-
-  .innovation-breadcrumb {
-    padding-top: 10px;
-    padding-bottom: 4px;
-    line-height: 1.45;
-  }
-
-  .innovation-breadcrumb__current {
-    word-break: break-word;
   }
 
   .innovation-hero {

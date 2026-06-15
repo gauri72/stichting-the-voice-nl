@@ -53,107 +53,40 @@
   letter-spacing: 0.04em;
 }
 
-/* Breadcrumb */
-
-.impact-breadcrumb {
-  display: flex;
-  align-items: center;
-  flex-wrap: wrap;
-  gap: 6px;
-  padding: 12px clamp(14px, 3vw, 28px) 0;
-  font-size: 0.78rem;
-  font-weight: 600;
-}
-
-.impact-breadcrumb__home,
-.impact-breadcrumb__link {
-  display: inline-flex;
-  align-items: center;
-  color: var(--ip-muted);
-  text-decoration: none;
-}
-
-.impact-breadcrumb__home:hover,
-.impact-breadcrumb__link:hover {
-  color: var(--ip-teal);
-}
-
-.impact-breadcrumb__sep {
-  color: var(--ip-muted);
-  flex-shrink: 0;
-}
-
-.impact-breadcrumb__current {
-  color: var(--ip-teal);
-}
-
 /* Hero */
 
 .impact-hero {
-  position: relative;
-  margin: clamp(12px, 2vw, 18px) clamp(14px, 3vw, 28px) clamp(18px, 3vw, 28px);
-  border-radius: 18px;
-  overflow: hidden;
-  isolation: isolate;
-  min-height: clamp(200px, 38vw, 280px);
-  border: 1px solid var(--ip-border);
-}
-
-.impact-hero__bg {
-  position: absolute;
-  inset: 0;
+  display: block;
   width: 100%;
-  height: 100%;
-  object-fit: cover;
-  z-index: -2;
-}
-
-.impact-hero__overlay {
-  position: absolute;
-  inset: 0;
-  z-index: -1;
-  background: linear-gradient(
-    180deg,
-    rgba(6, 9, 16, 0.55) 0%,
-    rgba(6, 9, 16, 0.82) 52%,
-    rgba(6, 9, 16, 0.92) 100%
-  );
-}
-
-.impact-hero__inner {
-  display: flex;
-  align-items: flex-end;
-  min-height: inherit;
-  padding: clamp(20px, 4vw, 42px);
-}
-
-.impact-hero__copy {
-  width: 100%;
-  max-width: 640px;
-}
-
-.impact-hero__title {
   margin: 0;
-  color: var(--ip-on-dark);
-  font-size: clamp(1.85rem, 7vw, 3.5rem);
-  font-weight: 800;
-  line-height: 1.08;
+  padding: 0;
+  line-height: 0;
+  background-color: var(--color-bg);
 }
 
-.impact-hero .impact-accent--teal {
-  color: #2ec4c7;
+.impact-hero__image {
+  display: block;
+  width: 100%;
+  height: auto;
+  max-width: 100%;
+  object-fit: contain;
+  object-position: center top;
 }
 
-.impact-hero__line {
-  margin: 8px 0 0;
-  color: var(--ip-on-dark-muted);
-  font-size: clamp(0.84rem, 2.4vw, 1.05rem);
-  font-weight: 600;
-  line-height: 1.45;
+.impact-hero__image--dark {
+  display: none;
 }
 
-.impact-hero__line:first-of-type {
-  margin-top: 12px;
+[data-theme="dark"] .impact-hero {
+  background-color: #000000;
+}
+
+[data-theme="dark"] .impact-hero__image--light {
+  display: none;
+}
+
+[data-theme="dark"] .impact-hero__image--dark {
+  display: block;
 }
 
 /* HerBeats */
@@ -765,23 +698,6 @@
 /* Tablet */
 
 @media (min-width: 720px) {
-  .impact-hero {
-    min-height: clamp(240px, 32vw, 300px);
-  }
-
-  .impact-hero__overlay {
-    background: linear-gradient(
-      90deg,
-      rgba(6, 9, 16, 0.92) 0%,
-      rgba(6, 9, 16, 0.72) 45%,
-      rgba(6, 9, 16, 0.45) 100%
-    );
-  }
-
-  .impact-hero__inner {
-    align-items: center;
-  }
-
   .impact-herbeats__grid {
     grid-template-columns: minmax(0, 0.85fr) minmax(0, 1.2fr) minmax(0, 0.75fr);
     align-items: center;
@@ -827,23 +743,14 @@
 }
 
 @media (max-width: 719px) {
-  .impact-breadcrumb,
   .impact-herbeats,
   .impact-highlight,
   .impact-areas {
     padding-inline: 16px;
   }
 
-  .impact-hero {
-    margin-inline: 16px;
-  }
-
   .impact-section-title {
     padding-inline: 4px;
-  }
-
-  .impact-hero__copy {
-    text-align: left;
   }
 
   .impact-herbeats__brand {
@@ -907,35 +814,6 @@
 }
 
 /* Light theme refinements */
-
-[data-theme="light"] .impact-hero {
-  border: 1px solid var(--ip-border);
-  box-shadow: 0 16px 40px var(--color-shadow-strong);
-}
-
-[data-theme="light"] .impact-hero__overlay {
-  background: linear-gradient(
-    180deg,
-    rgba(14, 47, 72, 0.52) 0%,
-    rgba(14, 47, 72, 0.82) 55%,
-    rgba(14, 47, 72, 0.92) 100%
-  );
-}
-
-@media (min-width: 720px) {
-  [data-theme="light"] .impact-hero__overlay {
-    background: linear-gradient(
-      90deg,
-      rgba(14, 47, 72, 0.88) 0%,
-      rgba(14, 47, 72, 0.68) 48%,
-      rgba(14, 47, 72, 0.42) 100%
-    );
-  }
-}
-
-[data-theme="light"] .impact-hero .impact-accent--teal {
-  color: #5eead4;
-}
 
 [data-theme="light"] .impact-herbeats__card {
   border-color: rgba(124, 58, 237, 0.22);
@@ -1091,8 +969,4 @@
 
 [data-theme="dark"] .impact-area-card {
   box-shadow: 0 12px 32px rgba(0, 0, 0, 0.32);
-}
-
-[data-theme="dark"] .impact-hero {
-  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.4);
 }

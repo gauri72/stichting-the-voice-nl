@@ -1,23 +1,15 @@
 import breadcrumbBgLight from "../../assets/Sponsorship/breadcrumb-bg-light.png";
 import breadcrumbBgDark from "../../assets/Sponsorship/breadcrumb-bg-dark.png";
+import BreadcrumbPageHeader from "../layout/BreadcrumbPageHeader.jsx";
 import "../../styles/donate-breadcrumb-section.css";
 
 export default function DonateBreadcrumbSection() {
   return (
-    <section className="donate-page-hero" aria-label="Donate">
-      <img
-        className="donate-page-hero__image donate-page-hero__image--light"
-        src={breadcrumbBgLight}
-        alt=""
-        decoding="async"
-        fetchPriority="high"
-      />
-      <img
-        className="donate-page-hero__image donate-page-hero__image--dark"
-        src={breadcrumbBgDark}
-        alt=""
-        decoding="async"
-      />
-    </section>
+    <BreadcrumbPageHeader
+      ariaLabel="Donate"
+      lightSrc={breadcrumbBgLight}
+      darkSrc={breadcrumbBgDark}
+      heroClassName="donate-page-hero"
+    />
   );
 }

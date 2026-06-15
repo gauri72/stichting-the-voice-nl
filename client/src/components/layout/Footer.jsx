@@ -1,20 +1,37 @@
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import {
+  IconArrowRight,
   IconBrandFacebook,
   IconBrandInstagram,
   IconBrandLinkedin,
   IconBrandWhatsapp,
   IconBrandX,
   IconBrandYoutube,
+  IconBuilding,
+  IconBulb,
+  IconClipboard,
+  IconCrown,
+  IconGift,
+  IconHeartHandshake,
+  IconHome,
+  IconMail,
+  IconMapPin,
+  IconMicrophone,
   IconSend,
+  IconShield,
+  IconSparkles,
+  IconUsers,
+  IconWorld,
   IconX,
 } from "@tabler/icons-react";
 import { apiFetch } from "../../utils/api.js";
 import { WHATSAPP_GROUP_URL } from "../../constants/siteLinks.js";
 import footerBg from "../../assets/footer-bg.png";
+import voiceNlLogo from "../../assets/logos/V.O.I.C.E. NL Copyright HD Logo.png";
 import voiceVentureStudioLogo from "../../assets/VOICE Venture Studio.png";
 import "../../styles/footer.css";
+import "../../styles/footer-mobile.css";
 
 function buildWhatsAppHref() {
   const raw = import.meta.env.VITE_WHATSAPP_E164;
@@ -43,6 +60,23 @@ const footerLegalLinks = [
 ];
 
 const footerSiteLinks = [...footerNavLinks, ...footerLegalLinks];
+
+const footerMobileQuickLinksLeft = [
+  { label: "Home", to: "/", Icon: IconHome },
+  { label: "Experiences", to: "/events", Icon: IconSparkles },
+  { label: "Stories", to: "/stories", Icon: IconMicrophone },
+  { label: "Impact", to: "/impact", Icon: IconHeartHandshake },
+  { label: "Innovation", to: "/voice-venture-studio", Icon: IconBulb },
+  { label: "Become A Member", to: "/membership", Icon: IconCrown },
+];
+
+const footerMobileQuickLinksRight = [
+  { label: "Sponsor Us", to: "/sponsorship", Icon: IconHeartHandshake },
+  { label: "Donate", to: "/donate", Icon: IconGift },
+  { label: "About Us", to: "/about-us", Icon: IconUsers },
+  { label: "Privacy Policy", to: "/privacy-policy", Icon: IconShield },
+  { label: "Terms & Conditions", to: "/terms-and-conditions", Icon: IconClipboard },
+];
 
 const socialLinks = [
   {
@@ -74,6 +108,16 @@ const socialLinks = [
 
 const DEFAULT_CONTACT_EMAIL = "info@stichtingthevoice.nl";
 
+function FooterSectionTitle({ children }) {
+  return (
+    <h3 className="footer-mobile-section-title">
+      <span className="footer-mobile-section-title__line" aria-hidden="true" />
+      <span>{children}</span>
+      <span className="footer-mobile-section-title__line" aria-hidden="true" />
+    </h3>
+  );
+}
+
 export default function Footer() {
   const [contactEmail, setContactEmail] = useState(DEFAULT_CONTACT_EMAIL);
   const [isChatOpen, setIsChatOpen] = useState(false);
@@ -86,9 +130,160 @@ export default function Footer() {
       .catch(() => {});
   }, []);
 
+  const contactCards = [
+    {
+      label: "KVK",
+      value: "92180213",
+      accent: "blue",
+      Icon: IconBuilding,
+    },
+    {
+      label: "Address",
+      value: "Wengehout 30, 2719 KA Zoetermeer, Netherlands",
+      accent: "green",
+      Icon: IconMapPin,
+    },
+    {
+      label: "Email",
+      value: contactEmail,
+      href: `mailto:${contactEmail}`,
+      accent: "purple",
+      Icon: IconMail,
+    },
+    {
+      label: "Website",
+      value: "stichtingthevoice.nl",
+      href: "https://stichtingthevoice.nl",
+      accent: "teal",
+      Icon: IconWorld,
+    },
+  ];
+
   return (
     <footer className="site-footer site-footer--with-bg" style={{ "--footer-bg-image": `url(${footerBg})` }}>
-      <div className="footer-main">
+      <div className="footer-mobile">
+        <div className="footer-mobile-hero">
+          <h2 className="footer-mobile-hero__title">Together, We Can</h2>
+          <p className="footer-mobile-hero__subtitle">
+            <span className="footer-mobile-hero__subtitle-blue">Create a Better </span>
+            <span className="footer-mobile-hero__subtitle-green">Tomorrow.</span>
+          </p>
+
+          <div className="footer-mobile-hero__brand">
+            <img
+              className="footer-mobile-hero__logo"
+              src={voiceNlLogo}
+              alt="V.O.I.C.E. NL"
+              loading="lazy"
+            />
+            <p className="footer-mobile-hero__brand-name">V.O.I.C.E. NL</p>
+            <p className="footer-mobile-hero__brand-tagline">Stichting The V.O.I.C.E. NL</p>
+          </div>
+
+          <a
+            className="footer-mobile-whatsapp-btn"
+            href={WHATSAPP_GROUP_URL}
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <IconBrandWhatsapp aria-hidden stroke={1.75} />
+            <span>Join WhatsApp Group</span>
+            <span className="footer-mobile-whatsapp-btn__arrow" aria-hidden="true">
+              <IconArrowRight stroke={2} />
+            </span>
+          </a>
+        </div>
+
+        <section className="footer-mobile-section" aria-label="Follow us">
+          <FooterSectionTitle>Follow Us</FooterSectionTitle>
+          <div className="footer-mobile-social">
+            {socialLinks.map(({ href, label, Icon }) => (
+              <a key={label} href={href} target="_blank" rel="noopener noreferrer" aria-label={label}>
+                <Icon aria-hidden stroke={1.75} />
+              </a>
+            ))}
+          </div>
+        </section>
+
+        <section className="footer-mobile-section" aria-label="Quick links">
+          <FooterSectionTitle>Quick Links</FooterSectionTitle>
+          <div className="footer-mobile-quick-grid">
+            <div className="footer-mobile-quick-col">
+              {footerMobileQuickLinksLeft.map(({ label, to, Icon }) => (
+                <Link key={to} to={to} className="footer-mobile-quick-link">
+                  <span className="footer-mobile-quick-link__icon">
+                    <Icon aria-hidden stroke={1.75} />
+                  </span>
+                  <span className="footer-mobile-quick-link__label">{label}</span>
+                  <span className="footer-mobile-quick-link__chevron" aria-hidden="true">
+                    &gt;
+                  </span>
+                </Link>
+              ))}
+            </div>
+            <div className="footer-mobile-quick-col">
+              {footerMobileQuickLinksRight.map(({ label, to, Icon }) => (
+                <Link key={to} to={to} className="footer-mobile-quick-link">
+                  <span className="footer-mobile-quick-link__icon">
+                    <Icon aria-hidden stroke={1.75} />
+                  </span>
+                  <span className="footer-mobile-quick-link__label">{label}</span>
+                  <span className="footer-mobile-quick-link__chevron" aria-hidden="true">
+                    &gt;
+                  </span>
+                </Link>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        <section className="footer-mobile-section" id="contact" aria-label="Contact us">
+          <FooterSectionTitle>Contact Us</FooterSectionTitle>
+          <div className="footer-mobile-contact-grid">
+            {contactCards.map(({ label, value, href, accent, Icon }) => (
+              <article
+                key={label}
+                className={`footer-mobile-contact-card footer-mobile-contact-card--${accent}`}
+              >
+                <span className="footer-mobile-contact-card__icon">
+                  <Icon aria-hidden stroke={1.75} />
+                </span>
+                <span className="footer-mobile-contact-card__label">{label}</span>
+                <p className="footer-mobile-contact-card__value">
+                  {href ? (
+                    <a href={href} target={href.startsWith("http") ? "_blank" : undefined} rel="noopener noreferrer">
+                      {value}
+                    </a>
+                  ) : (
+                    value
+                  )}
+                </p>
+              </article>
+            ))}
+          </div>
+        </section>
+
+        <div className="footer-mobile-credit" aria-label="Designed and developed by V.O.I.C.E. Venture Studio">
+          <p className="footer-mobile-credit__heading">
+            <span className="footer-mobile-credit__heading-line" aria-hidden="true" />
+            <span>Proudly Designed &amp; Developed By</span>
+            <span className="footer-mobile-credit__heading-line" aria-hidden="true" />
+          </p>
+          <img
+            className="footer-mobile-credit__logo"
+            src={voiceVentureStudioLogo}
+            alt="V.O.I.C.E. Venture Studio — Digital, Design, Innovation"
+            loading="lazy"
+          />
+        </div>
+
+        <p className="footer-mobile-copyright">
+          <IconShield aria-hidden stroke={1.75} />
+          <span>© 2026 Stichting The V.O.I.C.E. NL. All rights reserved.</span>
+        </p>
+      </div>
+
+      <div className="footer-main footer-desktop">
         <div className="footer-impact-strip">
           <div className="footer-impact-copy">
             <h2 className="footer-impact-title">Together, We Can</h2>
@@ -155,7 +350,7 @@ export default function Footer() {
             </div>
           </div>
 
-          <div id="contact" className="footer-col footer-col-contact">
+          <div className="footer-col footer-col-contact">
             <h3 className="footer-section-title">Contact us</h3>
             <div className="footer-brand-details footer-brand-details--standalone">
               <p>
@@ -174,10 +369,7 @@ export default function Footer() {
               </p>
               <p>
                 <span className="footer-brand-details-label">Email</span>
-                <a
-                  className="footer-brand-details-value footer-email"
-                  href={`mailto:${contactEmail}`}
-                >
+                <a className="footer-brand-details-value footer-email" href={`mailto:${contactEmail}`}>
                   {contactEmail}
                 </a>
               </p>

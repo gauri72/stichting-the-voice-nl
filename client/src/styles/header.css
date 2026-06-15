@@ -13,11 +13,17 @@
 
 .site-header {
   font-family: var(--font-poppins);
-  background: var(--color-bg);
-  border-bottom: 1px solid var(--color-border);
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+  background: transparent;
+  border-bottom: none;
   width: 100%;
   max-width: 100%;
   overflow-x: clip;
+  pointer-events: none;
 }
 
 /* Light mode: header CTAs and menus use hero sky shade instead of pure white */
@@ -35,14 +41,36 @@
   position: relative;
   display: flex;
   align-items: center;
-  gap: 20px;
-  padding: 28px 18px;
-  min-height: 136px;
+  justify-content: flex-end;
+  gap: 0;
+  padding: clamp(14px, 2.8vw, 32px) clamp(14px, 3vw, 28px) clamp(10px, 1.5vw, 16px);
+  min-height: 0;
   max-width: 1500px;
   margin: 0 auto;
   width: 100%;
   min-width: 0;
   box-sizing: border-box;
+  pointer-events: auto;
+}
+
+.nav-toolbar {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  flex-wrap: wrap;
+  gap: clamp(8px, 1.25vw, 16px);
+  width: 100%;
+  max-width: 1320px;
+  margin: 0 0 0 auto;
+}
+
+.nav-toolbar__cta-member {
+  display: none;
+}
+
+.brand-block,
+.mobile-brand-block {
+  display: none !important;
 }
 
 .brand-block {
@@ -121,7 +149,6 @@
 
 .menu-toggle {
   display: none;
-  margin-left: auto;
   width: 44px;
   height: 44px;
   border-radius: 10px;
@@ -150,61 +177,28 @@
   display: none;
 }
 
-.nav-center {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  min-width: 0;
-  width: 100%;
+.nav-center,
+.nav-right,
+.nav-mobile-bar {
+  display: none !important;
 }
 
-.nav-right {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  flex: 0 0 auto;
-  justify-self: end;
+.menu-links--mobile {
+  display: none;
 }
 
 @media (min-width: 1101px) {
   .site-navbar {
-    display: flex;
-    align-items: center;
-    gap: 20px;
-    padding: 20px 20px;
-    min-height: 136px;
+    padding: clamp(16px, 2.8vw, 34px) clamp(20px, 3vw, 28px) clamp(12px, 1.5vw, 18px);
   }
 
-  .brand-block {
-    flex: 0 0 auto;
-    z-index: 2;
+  .menu-links--desktop {
+    gap: clamp(14px, 1.5vw, 22px);
   }
 
-  .nav-center {
-    flex: 1 1 auto;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    min-width: 0;
-    width: auto;
-    max-width: 100%;
-    z-index: 1;
-  }
-
-  .nav-right {
-    flex: 0 0 auto;
-    margin-left: 0;
-    z-index: 2;
-  }
-
-  .menu-links {
-    gap: 22px;
-    padding-left: 0;
-  }
-
-  .menu-links a,
-  .menu-dropdown-trigger {
-    font-size: 15px;
+  .menu-links--desktop a,
+  .menu-links--desktop .menu-dropdown-trigger {
+    font-size: clamp(13px, 1.1vw, 15px);
     padding: 7px 0;
   }
 
@@ -212,34 +206,19 @@
     font-size: 11px;
   }
 
-  .menu-links .contact-link {
-    margin-right: 28px;
-    width: 40px;
-    height: 40px;
-  }
-
-  .menu-links .contact-link-icon {
-    width: 19px;
-    height: 19px;
-  }
-
-  .donate-button-desktop {
+  .nav-toolbar .donate-button {
     padding: 13px 22px;
     font-size: 14px;
     gap: 9px;
   }
 
-  .donate-button-desktop .donate-icon {
-    font-size: 18px;
-  }
-
-  .auth-button-desktop {
+  .nav-toolbar .auth-button {
     padding: 12px 20px;
     font-size: 13px;
     gap: 8px;
   }
 
-  .auth-button-desktop .auth-button-icon {
+  .nav-toolbar .auth-button-icon {
     width: 17px;
     height: 17px;
   }
@@ -260,7 +239,7 @@
   align-items: center;
   flex-wrap: nowrap;
   gap: 22px;
-  justify-content: center;
+  justify-content: flex-end;
 }
 
 .menu-links a,
@@ -276,6 +255,7 @@
   padding: 7px 0;
   border-bottom: 2px solid transparent;
   transition: color 0.2s ease, border-color 0.2s ease, transform 0.2s ease;
+  text-shadow: 0 1px 12px rgba(255, 255, 255, 0.45);
 }
 
 .menu-links a:hover {
@@ -305,19 +285,6 @@
   white-space: nowrap;
   text-decoration: none;
   transition: transform 0.2s ease, box-shadow 0.2s ease, filter 0.2s ease;
-}
-
-.donate-button-desktop {
-  display: inline-flex;
-}
-
-.donate-button-menu {
-  display: none;
-}
-
-.nav-mobile-bar,
-.buy-tickets-bar {
-  display: none;
 }
 
 .auth-button {
@@ -483,6 +450,7 @@
   outline-offset: 3px;
 }
 
+.nav-toolbar__cta-icon,
 .buy-tickets-icon {
   width: 17px;
   height: 17px;
@@ -582,212 +550,154 @@
 }
 
 @media (max-width: 1450px) and (min-width: 1101px) {
-  .site-navbar {
-    gap: 16px;
-    padding: 20px 16px;
-    min-height: 124px;
-  }
-
-  .brand-logo {
-    width: 84px;
-    height: 84px;
-  }
-
-  .brand-name-top {
-    font-size: 10px;
-  }
-
-  .brand-name-bottom {
-    font-size: 22px;
-  }
-
-  .menu-links {
+  .menu-links--desktop {
     gap: 18px;
-    padding-left: 0;
   }
 
-  .menu-links .contact-link {
-    margin-right: 22px;
-  }
-
-  .nav-right {
-    gap: 8px;
+  .nav-toolbar {
+    gap: 12px;
   }
 }
 
 @media (max-width: 1280px) and (min-width: 1101px) {
-  .site-navbar {
-    padding: 18px 14px;
-    min-height: 124px;
-  }
-
-  .brand-logo {
-    width: 76px;
-    height: 76px;
-  }
-
-  .brand-name-top {
-    font-size: 9px;
-  }
-
-  .brand-name-bottom {
-    font-size: 20px;
-  }
-
-  .menu-links {
+  .menu-links--desktop {
     gap: 14px;
-    padding-left: 0;
   }
 
-  .menu-links a,
-  .menu-dropdown-trigger {
+  .menu-links--desktop a,
+  .menu-links--desktop .menu-dropdown-trigger {
     font-size: 13px;
   }
 
-  .menu-links .contact-link {
-    margin-right: 16px;
-    width: 38px;
-    height: 38px;
-  }
-
-  .menu-links .contact-link-icon {
-    width: 18px;
-    height: 18px;
-  }
-
-  .donate-button-desktop {
+  .nav-toolbar .donate-button {
     padding: 12px 19px;
     font-size: 12px;
   }
 
-  .auth-button-desktop {
+  .nav-toolbar .auth-button {
     padding: 11px 17px;
     font-size: 11px;
   }
 }
 
 @media (max-width: 1100px) {
+  .site-header {
+    position: relative;
+    top: auto;
+    left: auto;
+    right: auto;
+    background: var(--color-bg);
+    border-bottom: 1px solid var(--color-border);
+  }
+
+  .menu-links a,
+  .menu-dropdown-trigger {
+    text-shadow: none;
+  }
+
+  [data-theme="dark"] .site-header .menu-links a,
+  [data-theme="dark"] .site-header .menu-dropdown-trigger {
+    text-shadow: none;
+  }
+
   .site-navbar {
-    flex-wrap: nowrap;
-    /* Brand grows on the left; buy tickets + hamburger sit in .nav-mobile-bar on the right */
-    justify-content: flex-start;
-    align-items: center;
-    gap: 0;
-    min-height: 108px;
-    padding: 20px 16px;
+    padding: max(6px, env(safe-area-inset-top, 0px)) 8px 8px;
   }
 
-  .brand-block {
-    flex: 1 1 auto;
-    min-width: 0;
-  }
-
-  .nav-mobile-bar {
-    --header-control-size: 44px;
-    display: flex;
-    align-items: center;
-    justify-content: flex-end;
-    gap: clamp(8px, 2vw, 14px);
-    flex-shrink: 0;
-    margin-left: auto;
-    min-width: 0;
-    height: var(--header-control-size);
-  }
-
-  .nav-mobile-bar .buy-tickets-bar,
-  .nav-mobile-bar .menu-toggle {
-    margin: 0;
-    flex: 0 0 auto;
-    width: auto;
-    min-width: 0;
-    height: var(--header-control-size);
-    min-height: var(--header-control-size);
-    max-height: var(--header-control-size);
-    box-sizing: border-box;
-  }
-
-  .nav-mobile-bar .buy-tickets-bar {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    gap: 6px;
-    padding: 0 clamp(10px, 2.5vw, 16px);
-    font-size: clamp(10px, 2.4vw, 12px);
-    line-height: 1;
-    max-width: min(42vw, 168px);
-    overflow: hidden;
-    text-overflow: ellipsis;
-    white-space: nowrap;
-  }
-
-  .nav-mobile-bar .buy-tickets-icon {
-    width: 15px;
-    height: 15px;
-  }
-
-  .nav-mobile-bar .menu-toggle {
-    display: inline-flex;
-    width: var(--header-control-size);
-    min-width: var(--header-control-size);
-    padding: 0;
-  }
-
-  .donate-button-menu {
-    display: none !important;
-  }
-
-  .nav-actions-theme-wrap {
+  .nav-toolbar {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr) minmax(0, 1fr) 40px 40px;
+    align-items: stretch;
+    gap: 5px;
     width: 100%;
-    display: flex;
+  }
+
+  .nav-toolbar__cta-member {
+    display: inline-flex;
+    grid-column: 1;
+  }
+
+  .nav-toolbar .buy-tickets-button {
+    grid-column: 2;
+  }
+
+  .nav-toolbar .auth-button {
+    grid-column: 3;
+  }
+
+  .nav-toolbar .theme-toggle {
+    grid-column: 4;
+  }
+
+  .nav-toolbar .menu-toggle {
+    grid-column: 5;
+  }
+
+  .nav-toolbar .nav-toolbar__cta-member,
+  .nav-toolbar .donate-button,
+  .nav-toolbar .auth-button {
+    width: 100%;
+    min-height: 40px;
+    height: 100%;
+    padding: 6px 4px;
+    font-size: clamp(7px, 1.95vw, 10px);
+    letter-spacing: 0.01em;
+    line-height: 1.15;
+    text-align: center;
+    white-space: normal;
     justify-content: center;
-    align-items: center;
-    margin-top: 4px;
   }
 
-  .brand-name {
-    display: flex;
-    line-height: 1;
+  .nav-toolbar .auth-button {
+    width: 100%;
     min-width: 0;
+    border: none;
+    background: linear-gradient(90deg, #0078ab, #2ca45f);
+    color: #ffffff;
+    transition: transform 0.2s ease, box-shadow 0.2s ease, filter 0.2s ease;
   }
 
-  .brand-name p {
-    font-family: "Lastica", sans-serif;
-    font-weight: 900;
+  .nav-toolbar .auth-button:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 8px 18px rgba(0, 120, 171, 0.3);
+    filter: brightness(1.05);
+    background: linear-gradient(90deg, #0078ab, #2ca45f);
+    color: #ffffff;
   }
 
-  .brand-name .brand-name-top {
-    font-size: 10px;
-    letter-spacing: 0.2em;
-    white-space: nowrap;
-    -webkit-text-stroke: 0.45px currentColor;
-    text-shadow:
-      0.4px 0 currentColor,
-      -0.4px 0 currentColor,
-      0 0.35px currentColor;
-    color: #2a3239;
-    font-weight: 900;
+  .nav-toolbar .auth-button:active {
+    transform: translateY(0);
+    box-shadow: 0 3px 10px rgba(0, 120, 171, 0.25);
   }
 
-  .brand-name .brand-name-bottom {
-    font-size: 15px;
-    margin-top: 2px;
-    letter-spacing: 0.08em;
-    white-space: nowrap;
-    line-height: 1.04;
-    text-rendering: geometricPrecision;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-    font-kerning: normal;
-    background: none;
-    -webkit-background-clip: initial;
-    background-clip: initial;
-    color: #0d5f87;
-    -webkit-text-stroke: 0.55px rgba(13, 95, 135, 0.9);
-    text-shadow:
-      0.5px 0 rgba(13, 95, 135, 0.82),
-      -0.5px 0 rgba(13, 95, 135, 0.82),
-      0 0.4px rgba(13, 95, 135, 0.72);
-    font-weight: 900;
+  .nav-toolbar .donate-button {
+    max-width: none;
+    gap: 4px;
+  }
+
+  .nav-toolbar .nav-toolbar__cta-icon,
+  .nav-toolbar .buy-tickets-icon {
+    width: 13px;
+    height: 13px;
+    flex-shrink: 0;
+  }
+
+  .nav-toolbar .menu-toggle,
+  .nav-toolbar .theme-toggle {
+    width: 40px;
+    min-width: 40px;
+    height: 40px;
+    min-height: 40px;
+    flex-shrink: 0;
+    align-self: center;
+  }
+
+  .menu-links--desktop {
+    display: none;
+  }
+
+  .menu-toggle {
+    display: inline-flex;
   }
 
   .nav-actions {
@@ -802,7 +712,7 @@
     align-items: center;
     justify-content: flex-start;
     gap: 20px;
-    padding: 86px 20px max(28px, env(safe-area-inset-bottom, 0px));
+    padding: 72px 20px max(28px, env(safe-area-inset-bottom, 0px));
     background: var(--color-bg);
     overflow-x: hidden;
     overflow-y: auto;
@@ -815,21 +725,16 @@
   }
 
   .nav-center,
-  .nav-right {
-    display: none;
-  }
-
-  .donate-button-desktop,
-  .auth-button-desktop,
-  .theme-toggle--desktop {
-    display: none;
-  }
-
-  .auth-button-menu {
-    display: inline-flex;
+  .nav-right,
+  .nav-mobile-bar {
+    display: none !important;
   }
 
   .nav-actions.open {
+    display: flex;
+  }
+
+  .menu-links--mobile {
     display: flex;
   }
 
@@ -1045,127 +950,68 @@
   }
 }
 
-@media (max-width: 1100px) and (min-width: 821px) {
-  .site-navbar .brand-logo {
-    width: 64px !important;
-    height: 64px !important;
-  }
-
-  .site-navbar .brand-name .brand-name-top {
-    font-size: 9px !important;
-    letter-spacing: 0.22em !important;
-  }
-
-  .site-navbar .brand-name .brand-name-bottom {
-    font-size: 14px !important;
-    margin-top: 1px !important;
-    letter-spacing: 0.1em !important;
-  }
-}
-
 @media (max-width: 820px) {
   .site-navbar {
-    padding: 18px 12px;
-    gap: 8px;
-    min-height: 100px;
+    padding: max(5px, env(safe-area-inset-top, 0px)) 8px 6px;
   }
 
-  .brand-block {
-    gap: 10px;
-    min-width: 0;
-    flex: 1 1 auto;
-    overflow: hidden;
+  .nav-toolbar {
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr) minmax(0, 1fr) 38px 38px;
+    gap: 4px;
   }
 
-  .nav-mobile-bar {
-    --header-control-size: 42px;
-    gap: 8px;
-  }
-
-  .nav-mobile-bar .buy-tickets-bar {
-    gap: 5px;
-    padding: 0 12px;
-    font-size: 10px;
-    max-width: min(38vw, 140px);
-  }
-
-  .nav-mobile-bar .buy-tickets-icon {
-    width: 14px;
-    height: 14px;
-  }
-
-  .site-navbar .brand-logo {
-    width: 52px !important;
-    height: 52px !important;
-  }
-
-  .site-navbar .brand-name .brand-name-top {
-    font-size: 8px !important;
-    letter-spacing: 0.4em !important;
-  }
-
-  .site-navbar .brand-name .brand-name-bottom {
-    font-size: 12px !important;
-    margin-top: 1px !important;
-    letter-spacing: 0.18em !important;
-    line-height: 1.04 !important;
-  }
-
-  .mobile-brand-logo {
-    width: 52px;
-    height: 52px;
-  }
-
-  .mobile-brand-name .brand-name-top {
+  .nav-toolbar .nav-toolbar__cta-member,
+  .nav-toolbar .donate-button,
+  .nav-toolbar .auth-button {
+    min-height: 38px;
+    padding: 5px 3px;
     font-size: 8px;
-    letter-spacing: 0.44em;
   }
 
-  .mobile-brand-name .brand-name-bottom {
-    font-size: 13px;
-    margin-top: -1px;
-    letter-spacing: 0.2em;
-    line-height: 1.04;
+  .nav-toolbar .menu-toggle,
+  .nav-toolbar .theme-toggle {
+    width: 38px;
+    min-width: 38px;
+    height: 38px;
+    min-height: 38px;
   }
 
+  .nav-toolbar .nav-toolbar__cta-icon,
+  .nav-toolbar .buy-tickets-icon {
+    width: 12px;
+    height: 12px;
+  }
 }
 
 @media (max-width: 480px) {
   .site-navbar {
-    min-height: 92px;
-    padding: 16px 10px;
+    padding: max(4px, env(safe-area-inset-top, 0px)) 6px 6px;
   }
 
-  .nav-mobile-bar {
-    --header-control-size: 40px;
-  }
-
-  .nav-mobile-bar .buy-tickets-bar {
+  .nav-toolbar {
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr) minmax(0, 1fr) 36px 36px;
     gap: 4px;
-    padding: 0 10px;
-    font-size: 9px;
-    letter-spacing: 0.02em;
-    max-width: min(36vw, 120px);
   }
 
-  .nav-mobile-bar .buy-tickets-icon {
-    width: 13px;
-    height: 13px;
+  .nav-toolbar .nav-toolbar__cta-member,
+  .nav-toolbar .donate-button,
+  .nav-toolbar .auth-button {
+    min-height: 36px;
+    padding: 4px 2px;
+    font-size: 7px;
   }
 
-  .site-navbar .brand-logo {
-    width: 44px !important;
-    height: 44px !important;
+  .nav-toolbar .menu-toggle,
+  .nav-toolbar .theme-toggle {
+    width: 36px;
+    min-width: 36px;
+    height: 36px;
+    min-height: 36px;
   }
 
-  .site-navbar .brand-name .brand-name-top {
-    font-size: 7px !important;
-    letter-spacing: 0.36em !important;
-  }
-
-  .site-navbar .brand-name .brand-name-bottom {
-    font-size: 11px !important;
-    letter-spacing: 0.16em !important;
-    line-height: 1.04 !important;
+  .nav-toolbar .nav-toolbar__cta-icon,
+  .nav-toolbar .buy-tickets-icon {
+    width: 11px;
+    height: 11px;
   }
 }

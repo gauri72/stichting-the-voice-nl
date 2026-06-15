@@ -32,18 +32,15 @@
   height: 22px;
 }
 
-.theme-toggle--mobile {
-  margin: 0;
-}
-
-@media (min-width: 1101px) {
-  .theme-toggle--mobile {
-    display: none;
+@media (max-width: 1100px) {
+  .nav-toolbar .donate-button {
+    gap: 5px;
   }
 }
 
-@media (max-width: 1100px) {
-  .theme-toggle--desktop {
-    display: none;
+@media (max-width: 480px) {
+  .theme-toggle__icon {
+    width: 18px;
+    height: 18px;
   }
 }

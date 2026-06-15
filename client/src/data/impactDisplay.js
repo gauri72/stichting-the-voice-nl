@@ -1,4 +1,3 @@
-import heroCrowd from "../assets/Impact/impact-hero-crowd.png";
 import herbeatsWomen from "../assets/Impact/impact-herbeats-women.png";
 import herbeatsHerNight from "../assets/Impact/impact-herbeats-her-night.png";
 import socialHands from "../assets/Impact/impact-social-hands.png";
@@ -11,17 +10,6 @@ import {
   VENTURE_STUDIO_WHATSAPP_URL,
   VOWNL_HERBEATS_WHATSAPP_URL,
 } from "../constants/siteLinks.js";
-
-export const IMPACT_HERO = {
-  titleLead: "V.O.I.C.E.",
-  titleAccent: "Impact",
-  lines: [
-    "Creating meaningful change.",
-    "Empowering communities.",
-    "Building a better tomorrow.",
-  ],
-  background: heroCrowd,
-};
 
 export const IMPACT_HERBEATS = {
   logo: vownlLogo,
