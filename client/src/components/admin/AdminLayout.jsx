@@ -12,7 +12,6 @@ import {
   IconUsers,
   IconUser,
   IconX,
-  IconChevronDown,
   IconDiscount,
 } from "@tabler/icons-react";
 import { useAdminAuth } from "../../contexts/AdminAuthContext.jsx";
@@ -30,15 +29,7 @@ const NAV_ITEMS = [
   { to: "/admin/reports", label: "More", icon: IconChartBar },
 ];
 
-const MOBILE_NAV_ITEMS = [
-  { to: "/admin/dashboard", label: "Dashboard", icon: IconLayoutDashboard, end: true },
-  { to: "/admin/events", label: "Events", icon: IconTicket },
-  { to: "/admin/members", label: "Members", icon: IconUsers },
-  { to: "/admin/communication", label: "Communication", icon: IconMail },
-  { to: "/admin/reports", label: "More", icon: IconChartBar },
-];
-
-export default function AdminLayout({ children, pageTitle, pageSubtitle, hideBottomNav = false }) {
+export default function AdminLayout({ children, pageTitle, pageSubtitle }) {
   const { admin, logout } = useAdminAuth();
   const navigate = useNavigate();
   const [drawerOpen, setDrawerOpen] = useState(false);
@@ -53,7 +44,7 @@ export default function AdminLayout({ children, pageTitle, pageSubtitle, hideBot
   }
 
   return (
-    <div className={`admin-layout${hideBottomNav ? " admin-layout--no-bottom-nav" : ""}`}>
+    <div className="admin-layout">
       <header className="admin-layout__topbar">
         <button
           type="button"
@@ -68,8 +59,7 @@ export default function AdminLayout({ children, pageTitle, pageSubtitle, hideBot
         <div className="admin-layout__brand">
           <span className="admin-layout__mark">V.</span>
           <div className="admin-layout__brand-copy">
-            <span className="admin-layout__brand-line admin-layout__brand-line--top">Stichting</span>
-            <span className="admin-layout__brand-line admin-layout__brand-line--bottom">The V.O.I.C.E. NL</span>
+            <p>Stichting The V.O.I.C.E. NL</p>
           </div>
         </div>
 
@@ -78,20 +68,12 @@ export default function AdminLayout({ children, pageTitle, pageSubtitle, hideBot
             <IconBell size={20} stroke={1.8} />
             <span className="admin-layout__badge">3</span>
           </button>
-          <button
-            type="button"
-            className="admin-layout__profile-btn"
-            aria-label="Account menu"
-            title={admin?.email}
-          >
-            <span className="admin-layout__avatar">
-              {admin?.firstName?.[0]}
-              {admin?.lastName?.[0]}
-            </span>
-            <IconChevronDown size={14} stroke={2} className="admin-layout__profile-chevron" aria-hidden />
-          </button>
-          <ThemeToggle className="admin-layout__theme-toggle" />
-          <button type="button" className="admin-layout__icon-btn" onClick={handleLogout} aria-label="Log out">
+          <div className="admin-layout__avatar" title={admin?.email}>
+            {admin?.firstName?.[0]}
+            {admin?.lastName?.[0]}
+          </div>
+          <ThemeToggle />
+          <button type="button" className="admin-layout__logout" onClick={handleLogout} aria-label="Log out">
             <IconLogout size={18} stroke={1.8} />
           </button>
         </div>
@@ -143,25 +125,7 @@ export default function AdminLayout({ children, pageTitle, pageSubtitle, hideBot
         {children}
       </main>
 
-      {!hideBottomNav ? (
-        <nav className="admin-layout__bottom-nav admin-layout__bottom-nav--mobile" aria-label="Admin navigation">
-          {MOBILE_NAV_ITEMS.map(({ to, label, icon: Icon, end }) => (
-            <NavLink
-              key={to}
-              to={to}
-              end={end}
-              className={({ isActive }) =>
-                `admin-layout__nav-item${isActive ? " admin-layout__nav-item--active" : ""}`
-              }
-            >
-              <Icon size={20} stroke={1.7} aria-hidden />
-              <span>{label}</span>
-            </NavLink>
-          ))}
-        </nav>
-      ) : null}
-
-      <nav className="admin-layout__bottom-nav admin-layout__bottom-nav--desktop" aria-label="Admin sidebar">
+      <nav className="admin-layout__bottom-nav" aria-label="Admin navigation">
         {NAV_ITEMS.map(({ to, label, icon: Icon, end }) => (
           <NavLink
             key={to}

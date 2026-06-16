@@ -50,7 +50,7 @@
 
 .featured-events-date__month {
   display: block;
-  font-size: clamp(0.875rem, 1.2vw, 0.82rem);
+  font-size: clamp(0.72rem, 1.2vw, 0.82rem);
   font-weight: 800;
   letter-spacing: 0.05em;
   line-height: 1.1;
@@ -112,7 +112,7 @@
   align-items: center;
   gap: 6px;
   color: #30455a;
-  font-size: clamp(0.875rem, 1.05vw, 0.96rem);
+  font-size: clamp(0.82rem, 1.05vw, 0.96rem);
   font-weight: 600;
 }
 
@@ -212,7 +212,7 @@
   }
 
   .featured-events-meta-item {
-    font-size: clamp(0.875rem, 2vw, 0.85rem);
+    font-size: clamp(0.72rem, 2vw, 0.85rem);
   }
 
   .featured-events-meta-item svg {
@@ -248,7 +248,7 @@
   }
 
   .featured-events-date__month {
-    font-size: var(--font-small);
+    font-size: 0.5rem;
     line-height: 1;
   }
 
@@ -270,7 +270,7 @@
   }
 
   .featured-events-eyebrow {
-    font-size: var(--font-small);
+    font-size: 0.72rem;
     margin-bottom: 0;
     letter-spacing: 0.03em;
     font-weight: 700;
@@ -301,7 +301,7 @@
 
   .featured-events-meta-item {
     gap: 4px;
-    font-size: var(--font-small);
+    font-size: 0.74rem;
     font-weight: 600;
     line-height: 1;
     min-width: 0;
@@ -365,7 +365,7 @@
   }
 
   .featured-events-meta-item {
-    font-size: var(--font-small);
+    font-size: 0.67rem;
   }
 
   .featured-events-cta {

@@ -159,7 +159,7 @@
   background: #2ea276;
   color: #ffffff;
   text-decoration: none;
-  font-size: var(--font-small);
+  font-size: 0.86rem;
   font-weight: 700;
   letter-spacing: 0.02em;
   text-transform: uppercase;
@@ -296,12 +296,12 @@
   }
 
   .our-segments-content p {
-    font-size: var(--font-body);
+    font-size: 1rem;
   }
 
   .our-segments-cta {
     min-height: 38px;
-    font-size: var(--font-small);
+    font-size: 0.82rem;
   }
 
   .our-segments-callout h3 {
@@ -309,7 +309,7 @@
   }
 
   .our-segments-callout p {
-    font-size: var(--font-body);
+    font-size: 1rem;
   }
 }
 
@@ -375,7 +375,7 @@
     margin-top: 12px;
     min-height: 36px;
     width: min(240px, 100%);
-    font-size: var(--font-small);
+    font-size: 0.8rem;
   }
 
   .our-segments-callout {

@@ -54,7 +54,7 @@
   flex-wrap: wrap;
   gap: 6px;
   padding: 12px clamp(14px, 3vw, 28px) 0;
-  font-size: var(--font-small);
+  font-size: 0.78rem;
   font-weight: 600;
 }
 
@@ -134,7 +134,7 @@
   margin: 12px 0 0;
   max-width: 48ch;
   color: var(--pol-muted);
-  font-size: clamp(0.875rem, 2.2vw, 0.95rem);
+  font-size: clamp(0.82rem, 2.2vw, 0.95rem);
   line-height: 1.6;
 }
 
@@ -209,7 +209,7 @@
 .policies-commitment__description {
   margin: 8px 0 0;
   color: var(--pol-muted);
-  font-size: clamp(0.875rem, 2vw, 0.88rem);
+  font-size: clamp(0.78rem, 2vw, 0.88rem);
   line-height: 1.55;
 }
 
@@ -248,7 +248,7 @@
 }
 
 .policies-commitment__pillar-label {
-  font-size: var(--font-small);
+  font-size: 0.78rem;
   font-weight: 700;
   color: var(--pol-text);
 }
@@ -380,7 +380,7 @@
 .policies-card__description {
   margin: 10px 0 0;
   color: var(--pol-muted);
-  font-size: clamp(0.875rem, 2vw, 0.86rem);
+  font-size: clamp(0.76rem, 2vw, 0.86rem);
   line-height: 1.5;
   max-width: 36ch;
 }
@@ -390,7 +390,7 @@
   align-items: center;
   gap: 6px;
   margin-top: 16px;
-  font-size: var(--font-small);
+  font-size: 0.78rem;
   font-weight: 700;
   text-decoration: none;
   transition: gap 160ms ease;
@@ -462,7 +462,7 @@
 .policies-terms-banner__description {
   margin: 8px 0 0;
   color: var(--pol-muted);
-  font-size: clamp(0.875rem, 2vw, 0.88rem);
+  font-size: clamp(0.78rem, 2vw, 0.88rem);
   line-height: 1.55;
 }
 
@@ -477,7 +477,7 @@
   border-radius: 10px;
   background: linear-gradient(90deg, #22d3ee 0%, #3b82f6 100%);
   color: #041018;
-  font-size: var(--font-small);
+  font-size: 0.82rem;
   font-weight: 800;
   text-decoration: none;
   transition: filter 160ms ease, transform 160ms ease;
@@ -570,7 +570,7 @@
 .policies-help__description {
   margin: 10px 0 0;
   color: var(--pol-text);
-  font-size: clamp(0.875rem, 2vw, 0.9rem);
+  font-size: clamp(0.78rem, 2vw, 0.9rem);
   line-height: 1.55;
   max-width: 42ch;
 }
@@ -590,7 +590,7 @@
   border: 1px solid rgba(34, 211, 238, 0.55);
   background: rgba(3, 7, 18, 0.45);
   color: var(--pol-teal);
-  font-size: var(--font-small);
+  font-size: 0.8rem;
   font-weight: 700;
   text-decoration: none;
   transition: background 160ms ease, border-color 160ms ease;
@@ -637,7 +637,7 @@
 .policies-disclaimer__text {
   margin: 0;
   color: var(--pol-muted);
-  font-size: clamp(0.875rem, 1.9vw, 0.82rem);
+  font-size: clamp(0.72rem, 1.9vw, 0.82rem);
   line-height: 1.55;
 }
 
@@ -824,7 +824,7 @@
   }
 
   .policies-section-title {
-    font-size: var(--font-body);
+    font-size: 1rem;
     letter-spacing: 0.08em;
     white-space: normal;
   }

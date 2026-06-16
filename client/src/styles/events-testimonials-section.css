@@ -138,7 +138,7 @@
 .events-reviews__eyebrow {
   margin: 0;
   color: #c2185b;
-  font-size: clamp(0.875rem, 0.95vw, 0.76rem);
+  font-size: clamp(0.62rem, 0.95vw, 0.76rem);
   font-weight: 700;
   letter-spacing: 0.16em;
   text-transform: uppercase;
@@ -306,13 +306,13 @@
 .events-reviews__stars-hint {
   margin: 0;
   color: #8a9aab;
-  font-size: clamp(0.875rem, 0.88vw, 0.82rem);
+  font-size: clamp(0.74rem, 0.88vw, 0.82rem);
   font-weight: 400;
 }
 
 .events-reviews__form-status {
   margin: 0;
-  font-size: var(--font-small);
+  font-size: 0.74rem;
   font-weight: 600;
 }
 
@@ -401,7 +401,7 @@
 .events-reviews__inspire-text {
   margin: 10px 0 0;
   color: #6b7c8f;
-  font-size: clamp(0.875rem, 0.95vw, 0.9rem);
+  font-size: clamp(0.82rem, 0.95vw, 0.9rem);
   font-weight: 500;
   line-height: 1.55;
   text-align: left;
@@ -461,7 +461,7 @@
 .events-reviews__community-title {
   margin: 0;
   color: #c2185b;
-  font-size: clamp(0.875rem, 0.95vw, 0.76rem);
+  font-size: clamp(0.62rem, 0.95vw, 0.76rem);
   font-weight: 800;
   letter-spacing: 0.14em;
   text-transform: uppercase;
@@ -516,7 +516,7 @@
   margin: 0;
   flex: 1;
   color: #3d4f61;
-  font-size: clamp(0.875rem, 0.82vw, 0.76rem);
+  font-size: clamp(0.68rem, 0.82vw, 0.76rem);
   font-weight: 500;
   line-height: 1.45;
   text-align: left;
@@ -553,7 +553,7 @@
   justify-content: center;
   background: linear-gradient(135deg, #fde8f2 0%, #fff0e3 100%);
   color: #c2185b;
-  font-size: var(--font-small);
+  font-size: 0.68rem;
   font-weight: 800;
   letter-spacing: 0.02em;
 }
@@ -561,7 +561,7 @@
 .events-reviews__card-name {
   margin: 0;
   color: #1a3348;
-  font-size: var(--font-small);
+  font-size: 0.78rem;
   font-weight: 700;
   line-height: 1.2;
 }
@@ -569,7 +569,7 @@
 .events-reviews__card-role {
   margin: 2px 0 0;
   color: #8a9aab;
-  font-size: var(--font-small);
+  font-size: 0.66rem;
   font-weight: 500;
 }
 
@@ -832,7 +832,7 @@
   }
 
   .events-reviews--submit .events-reviews__eyebrow {
-    font-size: clamp(0.875rem, 3.8vw, 1rem);
+    font-size: clamp(0.82rem, 3.8vw, 1rem);
     letter-spacing: 0.1em;
   }
 
@@ -841,7 +841,7 @@
   }
 
   .events-reviews__lead {
-    font-size: var(--font-small);
+    font-size: 0.82rem;
   }
 
   .events-reviews__form {
@@ -850,7 +850,7 @@
   }
 
   .events-reviews__field-label {
-    font-size: var(--font-small);
+    font-size: 0.86rem;
   }
 
   .events-reviews__field input,
@@ -877,7 +877,7 @@
   }
 
   .events-reviews--community .events-reviews__community-title {
-    font-size: clamp(0.875rem, 2.65vw, 0.88rem);
+    font-size: clamp(0.58rem, 2.65vw, 0.88rem);
     letter-spacing: 0.06em;
     white-space: nowrap;
     text-align: center;
@@ -907,7 +907,7 @@
   }
 
   .events-reviews__moderation {
-    font-size: var(--font-small);
+    font-size: 0.62rem;
     gap: 6px;
   }
 }
@@ -926,12 +926,12 @@
 
   .events-reviews--community .events-reviews__community-title {
     max-width: none;
-    font-size: clamp(0.875rem, 2.45vw, 0.82rem);
+    font-size: clamp(0.52rem, 2.45vw, 0.82rem);
     letter-spacing: 0.05em;
   }
 
   .events-reviews--submit .events-reviews__eyebrow {
-    font-size: clamp(0.875rem, 3.5vw, 0.92rem);
+    font-size: clamp(0.76rem, 3.5vw, 0.92rem);
   }
 }
 

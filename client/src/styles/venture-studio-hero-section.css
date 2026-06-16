@@ -188,7 +188,7 @@
 
 .vvs-hero__pillar-title {
   margin: 0;
-  font-size: clamp(0.875rem, 0.95vw, 0.94rem);
+  font-size: clamp(0.84rem, 0.95vw, 0.94rem);
   font-weight: 800;
   letter-spacing: 0.05em;
   text-transform: uppercase;
@@ -198,7 +198,7 @@
 
 .vvs-hero__pillar-text {
   margin: 8px 0 0;
-  font-size: clamp(0.875rem, 0.98vw, 0.96rem);
+  font-size: clamp(0.86rem, 0.98vw, 0.96rem);
   line-height: 1.55;
   color: var(--vvs-hero-muted);
   font-weight: 400;
@@ -307,7 +307,7 @@
   .vvs-hero__cta {
     min-height: 46px;
     padding: 10px 18px;
-    font-size: var(--font-small);
+    font-size: 0.84rem;
   }
 }
 
@@ -436,7 +436,7 @@
   }
 
   .vvs-hero__cta {
-    font-size: var(--font-small);
+    font-size: 0.84rem;
     min-height: 44px;
     padding: 10px 16px;
     gap: 8px;

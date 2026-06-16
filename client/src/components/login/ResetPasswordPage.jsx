@@ -4,7 +4,6 @@ import { FaEye, FaEyeSlash, FaLock } from "react-icons/fa";
 import { apiFetch } from "../../utils/api.js";
 import LoginBreadcrumbSection from "./LoginBreadcrumbSection.jsx";
 import LoginCtaSection from "./LoginCtaSection.jsx";
-import "../../styles/login-page.css";
 import "../../styles/login-form-section.css";
 
 function PasswordField({
@@ -96,7 +95,7 @@ export default function ResetPasswordPage() {
   }
 
   return (
-    <div id="login-navbar-top" className="login-page-shell">
+    <div id="login-navbar-top">
       <LoginBreadcrumbSection mode="login" />
       <section className="login-form-section" aria-labelledby="reset-password-title">
         <div className="login-form-section__card">

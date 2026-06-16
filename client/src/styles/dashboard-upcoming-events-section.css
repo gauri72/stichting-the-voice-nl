@@ -21,7 +21,7 @@
   display: inline-flex;
   align-items: center;
   gap: 6px;
-  font-size: var(--font-small);
+  font-size: 0.78rem;
   font-weight: 700;
   color: var(--md-cyan, #1aa7c4);
   text-decoration: none;
@@ -95,13 +95,13 @@
 
 .dash-events__date strong {
   display: block;
-  font-size: var(--font-body);
+  font-size: 1rem;
   font-weight: 800;
   color: #ffffff;
 }
 
 .dash-events__date small {
-  font-size: var(--font-small);
+  font-size: 0.62rem;
   text-transform: uppercase;
   letter-spacing: 0.06em;
 }
@@ -127,7 +127,7 @@
   display: inline-flex;
   align-items: center;
   gap: 5px;
-  font-size: var(--font-small);
+  font-size: 0.78rem;
   color: #ffffff;
 }
 
@@ -136,7 +136,7 @@
 }
 
 .dash-events__location svg {
-  font-size: var(--font-small);
+  font-size: 0.7em;
   color: #ffffff;
 }
 
@@ -149,7 +149,7 @@
   display: inline-flex;
   align-items: center;
   gap: 5px;
-  font-size: var(--font-small);
+  font-size: 0.76rem;
   font-weight: 600;
   color: var(--md-green, #2fa84f);
 }
@@ -174,7 +174,7 @@
   border: 1px solid var(--md-cyan, #1aa7c4);
   background: transparent;
   color: var(--md-cyan, #1aa7c4);
-  font-size: var(--font-small);
+  font-size: 0.76rem;
   font-weight: 700;
   text-decoration: none;
   box-shadow: none;
@@ -222,7 +222,7 @@
   border: 1px solid rgba(255, 255, 255, 0.55);
   background: rgba(0, 0, 0, 0.22);
   color: #ffffff;
-  font-size: var(--font-small);
+  font-size: 0.72rem;
   font-weight: 800;
   letter-spacing: 0.12em;
   text-transform: uppercase;
@@ -235,7 +235,7 @@
 
 .dash-events__soon-copy {
   margin: 0;
-  font-size: var(--font-small);
+  font-size: 0.74rem;
   line-height: 1.35;
   color: #ffffff;
 }

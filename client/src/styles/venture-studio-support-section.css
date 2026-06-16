@@ -57,7 +57,7 @@
 
 .vvs-support__card p {
   margin: 8px 0 0;
-  font-size: var(--font-small);
+  font-size: 0.76rem;
   line-height: 1.55;
   color: var(--vvs-muted);
 }

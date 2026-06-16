@@ -87,7 +87,7 @@
 
 .vvs-help__card-tag {
   margin: 8px 0 0;
-  font-size: clamp(0.875rem, 0.9vw, 0.84rem);
+  font-size: clamp(0.76rem, 0.9vw, 0.84rem);
   font-weight: 500;
   color: #5a6d78;
   line-height: 1.35;
@@ -125,7 +125,7 @@
   flex-shrink: 0;
   max-width: 36ch;
   text-align: center;
-  font-size: clamp(0.875rem, 0.95vw, 0.88rem);
+  font-size: clamp(0.78rem, 0.95vw, 0.88rem);
   line-height: 1.45;
   color: rgba(255, 255, 255, 0.88);
   font-weight: 400;
@@ -174,7 +174,7 @@
 .vvs-help__tshape-col ul {
   margin: 0;
   padding-left: 18px;
-  font-size: clamp(0.875rem, 0.85vw, 0.82rem);
+  font-size: clamp(0.72rem, 0.85vw, 0.82rem);
   line-height: 1.7;
   color: rgba(255, 255, 255, 0.92);
 }
@@ -244,7 +244,7 @@
   margin: clamp(10px, 1.2vw, 14px) 0 0;
   flex-shrink: 0;
   text-align: center;
-  font-size: clamp(0.875rem, 0.95vw, 0.92rem);
+  font-size: clamp(0.82rem, 0.95vw, 0.92rem);
   font-weight: 600;
   font-style: normal;
   color: rgba(255, 255, 255, 0.9);

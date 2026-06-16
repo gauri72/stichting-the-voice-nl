@@ -27,7 +27,6 @@ import AdminBroadcastPage from "./components/admin/AdminBroadcastPage";
 import AdminTemplateUploadPage from "./components/admin/AdminTemplateUploadPage";
 import AdminDiscountsPage from "./components/admin/AdminDiscountsPage";
 import AdminUsersPage from "./components/admin/AdminUsersPage";
-import AdminEventsPage from "./components/admin/AdminEventsPage.jsx";
 import AdminSectionPlaceholder from "./components/admin/AdminSectionPlaceholder";
 import AdminProtectedRoute from "./components/auth/AdminProtectedRoute";
 
@@ -139,7 +138,11 @@ export default function App() {
             path="/admin/events"
             element={
               <AdminProtectedRoute>
-                <AdminEventsPage />
+                <AdminSectionPlaceholder
+                  pageTitle="Events"
+                  pageSubtitle="Event management is coming soon."
+                  message="Use Email Broadcasts to promote featured events to your audience."
+                />
               </AdminProtectedRoute>
             }
           />

@@ -92,7 +92,7 @@
   }
 
   .profile-card__subtitle {
-    font-size: clamp(0.875rem, 0.9vw, 0.82rem);
+    font-size: clamp(0.74rem, 0.9vw, 0.82rem);
   }
 
   .profile-card__body {
@@ -102,7 +102,7 @@
   /* Personal details */
 
   .profile-personal__item {
-    font-size: clamp(0.875rem, 0.9vw, 0.82rem);
+    font-size: clamp(0.72rem, 0.9vw, 0.82rem);
     gap: 8px;
   }
 
@@ -117,13 +117,13 @@
   }
 
   .profile-password__label {
-    font-size: var(--font-small);
+    font-size: 0.84rem;
   }
 
   .profile-btn {
     min-height: 36px;
     padding: 8px 16px;
-    font-size: var(--font-small);
+    font-size: 0.78rem;
   }
 
   /* Payment */
@@ -151,15 +151,15 @@
   }
 
   .profile-pay__copy strong {
-    font-size: var(--font-small);
+    font-size: 0.86rem;
   }
 
   .profile-pay__copy span {
-    font-size: var(--font-small);
+    font-size: 0.74rem;
   }
 
   .profile-pay__secure {
-    font-size: var(--font-small);
+    font-size: 0.74rem;
     padding-top: 14px;
   }
 

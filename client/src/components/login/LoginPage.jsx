@@ -4,7 +4,6 @@ import { useAuth } from "../../contexts/AuthContext.jsx";
 import LoginBreadcrumbSection from "./LoginBreadcrumbSection";
 import LoginFormSection from "./LoginFormSection";
 import LoginCtaSection from "./LoginCtaSection";
-import "../../styles/login-page.css";
 
 export default function LoginPage() {
   const { user, loading } = useAuth();
@@ -24,7 +23,7 @@ export default function LoginPage() {
   }
 
   return (
-    <div id="login-navbar-top" className="login-page-shell">
+    <div id="login-navbar-top">
       <LoginBreadcrumbSection mode={authMode} />
       <LoginFormSection mode={authMode} onModeChange={setAuthMode} />
       <LoginCtaSection />

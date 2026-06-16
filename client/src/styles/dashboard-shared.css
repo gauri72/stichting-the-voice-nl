@@ -79,7 +79,7 @@
   margin: 0 auto;
   padding: 96px 24px;
   text-align: center;
-  font-size: var(--font-body);
+  font-size: 1rem;
   color: var(--md-text-soft);
 }
 
@@ -101,7 +101,7 @@
   background: linear-gradient(135deg, #1aa7c4 0%, #1f86c9 100%);
   color: #ffffff;
   font-family: inherit;
-  font-size: var(--font-small);
+  font-size: 0.85rem;
   font-weight: 700;
   cursor: pointer;
 }

@@ -127,7 +127,7 @@
   }
 
   .home-about-pillar p {
-    font-size: var(--font-body);
+    font-size: 1rem;
   }
 
   .home-about-heading-row {

@@ -144,7 +144,7 @@
 .our-impact-detail {
   margin: 3px 0 0;
   color: #d5ecf8;
-  font-size: var(--font-small);
+  font-size: 0.82rem;
   line-height: 1.35;
 }
 
@@ -177,7 +177,7 @@
 .our-impact-action-label {
   margin: 0;
   color: #86d7af;
-  font-size: var(--font-body);
+  font-size: 1rem;
   text-transform: uppercase;
   font-weight: 700;
   text-align: center;
@@ -192,7 +192,7 @@
 .our-impact-action-card p {
   margin: 0;
   color: #def2fd;
-  font-size: var(--font-body);
+  font-size: 1rem;
   line-height: 1.45;
   max-width: 42ch;
   margin-left: auto;
@@ -445,6 +445,6 @@
     margin-top: 12px;
     min-height: 40px;
     padding: 8px 14px;
-    font-size: var(--font-small);
+    font-size: 0.84rem;
   }
 }
