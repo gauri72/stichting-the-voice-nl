@@ -83,7 +83,7 @@
 
 .footer-newsletter-copy h2 {
   margin: 0 0 6px;
-  font-size: 15px;
+  font-size: var(--font-body);
   font-weight: 800;
   letter-spacing: 0.12em;
   text-transform: capitalize;
@@ -91,7 +91,7 @@
 
 .footer-newsletter-copy p {
   margin: 0;
-  font-size: 14px;
+  font-size: var(--font-small);
   line-height: 1.55;
   color: rgba(255, 255, 255, 0.88);
 }
@@ -115,7 +115,7 @@
   border-radius: 4px;
   background: rgba(0, 0, 0, 0.25);
   color: #ffffff;
-  font-size: 14px;
+  font-size: var(--font-small);
 }
 
 .footer-newsletter-form input::placeholder {
@@ -135,7 +135,7 @@
   border: none;
   border-radius: 8px;
   padding: 12px 22px;
-  font-size: 13px;
+  font-size: var(--font-small);
   font-weight: 800;
   letter-spacing: 0.1em;
   text-transform: capitalize;
@@ -206,7 +206,7 @@
 .footer-subscribe-note {
   width: 100%;
   text-align: right;
-  font-size: 13px;
+  font-size: var(--font-small);
   color: rgba(255, 255, 255, 0.85);
 }
 
@@ -363,7 +363,7 @@
 
 .footer-brand-text .footer-brand-top {
   margin: 0;
-  font-size: 13px;
+  font-size: var(--font-small);
   font-weight: 800;
   letter-spacing: 0.14em;
   text-transform: uppercase;
@@ -401,7 +401,7 @@
   padding-left: 24px;
   padding-right: 10px;
   border-top: 1px solid rgba(255, 255, 255, 0.2);
-  font-size: 13px;
+  font-size: var(--font-small);
   line-height: 1.45;
   color: rgba(255, 255, 255, 0.94);
 }
@@ -573,7 +573,7 @@
 
 .footer-section-title {
   margin: 0 0 14px;
-  font-size: 14px;
+  font-size: var(--font-small);
   font-weight: 800;
   letter-spacing: 0.12em;
   text-transform: capitalize;
@@ -660,7 +660,7 @@
   gap: 6px;
   padding: 2px 0;
   white-space: nowrap;
-  font-size: 14px;
+  font-size: var(--font-small);
   font-weight: 650;
   color: rgba(255, 255, 255, 0.92);
   text-decoration: none;
@@ -699,7 +699,7 @@
   border-radius: 50%;
   border: 2px solid rgba(255, 255, 255, 0.85);
   color: #ffffff;
-  font-size: 18px;
+  font-size: var(--font-card-title);
   text-decoration: none;
   transition:
     color 0.2s ease,
@@ -730,7 +730,7 @@
   background: #25d366;
   border: none;
   color: #ffffff;
-  font-size: 28px;
+  font-size: var(--font-page-title);
   cursor: pointer;
   box-shadow: 0 4px 20px rgba(37, 211, 102, 0.45);
   transition: transform 0.15s ease, box-shadow 0.2s ease;
@@ -760,7 +760,7 @@
   align-items: center;
   justify-content: space-between;
   padding: 0 14px 0 16px;
-  font-size: 16px;
+  font-size: var(--font-body);
 }
 
 .footer-whatsapp-header span {
@@ -768,7 +768,7 @@
   align-items: center;
   gap: 6px;
   font-weight: 700;
-  font-size: 16px;
+  font-size: var(--font-body);
 }
 
 .footer-whatsapp-header button {
@@ -797,7 +797,7 @@
   border-radius: 14px;
   background: #39403f;
   color: #f4f8f7;
-  font-size: 15px;
+  font-size: var(--font-body);
   line-height: 1.45;
   padding: 10px 12px;
 }
@@ -811,7 +811,7 @@
   align-items: center;
   justify-content: flex-end;
   gap: 10px;
-  font-size: 18px;
+  font-size: var(--font-card-title);
   font-weight: 700;
   padding: 10px 16px;
   transition: background-color 0.2s ease, transform 0.15s ease, box-shadow 0.2s ease;
@@ -923,13 +923,13 @@
   }
 
   .footer-col.footer-col-contact .footer-brand-details-label {
-    font-size: 12px;
+    font-size: var(--font-small);
     padding-left: 10px;
     padding-right: 12px;
   }
 
   .footer-col.footer-col-contact .footer-brand-details-value {
-    font-size: 12px;
+    font-size: var(--font-small);
     line-height: 1.4;
     padding-left: 8px;
   }
@@ -1101,12 +1101,12 @@
   .footer-col.footer-col-contact .footer-brand-details-label {
     padding-left: 8px;
     padding-right: 12px;
-    font-size: 12px;
+    font-size: var(--font-small);
   }
 
   .footer-col.footer-col-contact .footer-brand-details-value {
     padding-left: 6px;
-    font-size: 12px;
+    font-size: var(--font-small);
     line-height: 1.4;
   }
 
@@ -1325,15 +1325,15 @@
   }
 
   .footer-whatsapp-header span {
-    font-size: 15px;
+    font-size: var(--font-body);
   }
 
   .footer-whatsapp-body p {
-    font-size: 14px;
+    font-size: var(--font-small);
   }
 
   .footer-whatsapp-open-chat {
-    font-size: 16px;
+    font-size: var(--font-body);
   }
 }
 
@@ -1367,7 +1367,7 @@
   }
 
   .footer-venture-credit .footer-designed-by {
-    font-size: 8px;
+    font-size: var(--font-small);
   }
 }
 
@@ -1459,7 +1459,7 @@
 
 .footer-secondary-description {
   margin: 8px 0 0;
-  font-size: 14px;
+  font-size: var(--font-small);
   color: rgba(255, 255, 255, 0.95);
 }
 
@@ -1477,7 +1477,7 @@
   padding: 11px 18px;
   color: #fff;
   text-decoration: none;
-  font-size: 14px;
+  font-size: var(--font-small);
   font-weight: 800;
   letter-spacing: 0.04em;
   background: linear-gradient(90deg, #2d91c8 0%, #6fb854 100%);
@@ -1485,7 +1485,7 @@
 
 .footer-secondary-donate-note {
   margin: 8px 0 0;
-  font-size: 13px;
+  font-size: var(--font-small);
 }
 
 .footer-secondary-stay-connected {
@@ -1512,13 +1512,13 @@
 
 .footer-secondary-stay-copy h3 {
   margin: 0 0 4px;
-  font-size: 16px;
+  font-size: var(--font-body);
   letter-spacing: 0.06em;
 }
 
 .footer-secondary-stay-copy p {
   margin: 0;
-  font-size: 13px;
+  font-size: var(--font-small);
 }
 
 .footer-secondary-stay-form {
@@ -1537,7 +1537,7 @@
   color: #fff;
   border-radius: 6px 0 0 6px;
   padding: 10px 12px;
-  font-size: 13px;
+  font-size: var(--font-small);
 }
 
 .footer-secondary-stay-form input::placeholder {
@@ -1548,7 +1548,7 @@
   border: 0;
   border-radius: 0 6px 6px 0;
   padding: 10px 16px;
-  font-size: 13px;
+  font-size: var(--font-small);
   font-weight: 800;
   color: #fff;
   background: linear-gradient(90deg, #2d91c8 0%, #6fb854 100%);
@@ -1588,13 +1588,13 @@
 
 .footer-secondary-brand-top {
   margin: 0;
-  font-size: 12px;
+  font-size: var(--font-small);
   letter-spacing: 0.08em;
 }
 
 .footer-secondary-brand-name {
   margin: 2px 0 0;
-  font-size: 24px;
+  font-size: var(--font-section-title);
   color: #5fd56a;
   letter-spacing: 0.04em;
 }
@@ -1602,13 +1602,13 @@
 .footer-secondary-brand-tagline {
   margin: 8px 0 0;
   max-width: 280px;
-  font-size: 13px;
+  font-size: var(--font-small);
   color: rgba(255, 255, 255, 0.92);
 }
 
 .footer-secondary-heading {
   margin: 0 0 8px;
-  font-size: 13px;
+  font-size: var(--font-small);
   letter-spacing: 0.08em;
 }
 
@@ -1628,7 +1628,7 @@
 .footer-secondary-links a {
   color: rgba(255, 255, 255, 0.95);
   text-decoration: none;
-  font-size: 13px;
+  font-size: var(--font-small);
 }
 
 .footer-secondary-links a:hover {
@@ -1651,7 +1651,7 @@
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  font-size: 15px;
+  font-size: var(--font-body);
 }
 
 .footer-secondary-bottom {
@@ -1663,7 +1663,7 @@
 
 .footer-secondary-bottom p {
   margin: 4px 0;
-  font-size: 12px;
+  font-size: var(--font-small);
   color: rgba(255, 255, 255, 0.9);
 }
 
@@ -1798,7 +1798,7 @@
 
 .footer-impact-description {
   margin: 8px 0 0;
-  font-size: 14px;
+  font-size: var(--font-small);
   color: rgba(255, 255, 255, 0.95);
 }
 
@@ -1826,7 +1826,7 @@
   border-radius: 12px;
   text-decoration: none;
   color: #fff;
-  font-size: 12px;
+  font-size: var(--font-small);
   font-weight: 700;
   letter-spacing: 0.02em;
   text-transform: capitalize;
@@ -1847,7 +1847,7 @@
 .footer-impact-donate p {
   margin: 8px 0 0;
   max-width: 320px;
-  font-size: 13px;
+  font-size: var(--font-small);
   color: rgba(255, 255, 255, 0.95);
 }
 
@@ -1895,13 +1895,13 @@
 
 .footer-stay-connected-copy h3 {
   margin: 0 0 4px;
-  font-size: 16px;
+  font-size: var(--font-body);
   letter-spacing: 0.06em;
 }
 
 .footer-stay-connected-copy p {
   margin: 0;
-  font-size: 13px;
+  font-size: var(--font-small);
   color: rgba(255, 255, 255, 0.95);
 }
 
@@ -1920,7 +1920,7 @@
   border-radius: 6px 0 0 6px;
   background: rgba(0, 11, 26, 0.42);
   color: #fff;
-  font-size: 13px;
+  font-size: var(--font-small);
   padding: 10px 12px;
 }
 
@@ -1933,7 +1933,7 @@
   border-radius: 0 6px 6px 0;
   padding: 10px 16px;
   color: #fff;
-  font-size: 13px;
+  font-size: var(--font-small);
   font-weight: 800;
   background: linear-gradient(90deg, #2d92c9 0%, #6fb854 100%);
   cursor: pointer;
@@ -1958,7 +1958,7 @@
 .footer-stay-connected-status,
 .footer-stay-connected-error {
   margin: 10px 0 0;
-  font-size: 0.85rem;
+  font-size: var(--font-small);
   line-height: 1.4;
 }
 
@@ -2531,6 +2531,6 @@
   }
 
   .footer-venture-credit--impact .footer-designed-by {
-    font-size: 9px;
+    font-size: var(--font-small);
   }
 }

@@ -165,7 +165,7 @@
 
 @media (max-width: 640px) {
   .home-page .featured-events-eyebrow {
-    font-size: 0.72rem;
+    font-size: var(--font-small);
   }
 
   .home-page .our-pillars-section__title {

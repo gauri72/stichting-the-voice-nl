@@ -1,5 +1,3 @@
-import heroBgLight from "../../assets/Home/hero-bg-light.png";
-import heroBgDark from "../../assets/Home/hero-bg-dark.png";
 import { ABOUT_HERO } from "../../data/aboutUsDisplay.js";
 
 export default function AboutUsHeroSection() {
@@ -14,22 +12,6 @@ export default function AboutUsHeroSection() {
           <span className="about-us-accent">{ABOUT_HERO.taglineAccent}</span>
         </p>
         <p className="about-us-hero__description">{ABOUT_HERO.description}</p>
-      </div>
-
-      <div className="about-us-hero__media">
-        <img
-          className="about-us-hero__image about-us-hero__image--light"
-          src={heroBgLight}
-          alt=""
-          decoding="async"
-          fetchPriority="high"
-        />
-        <img
-          className="about-us-hero__image about-us-hero__image--dark"
-          src={heroBgDark}
-          alt=""
-          decoding="async"
-        />
       </div>
     </section>
   );

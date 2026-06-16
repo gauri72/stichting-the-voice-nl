@@ -81,7 +81,7 @@
 
 .vvs-contact__card-lead {
   margin: -12px 0 clamp(18px, 2vw, 22px);
-  font-size: clamp(0.82rem, 0.95vw, 0.9rem);
+  font-size: clamp(0.875rem, 0.95vw, 0.9rem);
   line-height: 1.55;
   color: var(--vvs-contact-muted);
   font-weight: 400;
@@ -120,14 +120,14 @@
   flex-direction: column;
   gap: 2px;
   min-width: 0;
-  font-size: clamp(0.84rem, 0.95vw, 0.9rem);
+  font-size: clamp(0.875rem, 0.95vw, 0.9rem);
   line-height: 1.5;
 }
 
 .vvs-contact__info-body strong {
   display: block;
   color: var(--vvs-contact-navy);
-  font-size: clamp(0.86rem, 0.98vw, 0.92rem);
+  font-size: clamp(0.875rem, 0.98vw, 0.92rem);
   font-weight: 700;
   margin-bottom: 4px;
 }
@@ -172,7 +172,7 @@
   border: 1px solid var(--vvs-contact-border);
   border-radius: 8px;
   font-family: inherit;
-  font-size: clamp(0.84rem, 0.95vw, 0.9rem);
+  font-size: clamp(0.875rem, 0.95vw, 0.9rem);
   color: var(--vvs-contact-navy);
   background: var(--vvs-contact-input-bg);
   box-sizing: border-box;
@@ -225,7 +225,7 @@
   background: var(--vvs-contact-teal);
   color: #ffffff;
   font-family: inherit;
-  font-size: clamp(0.86rem, 0.98vw, 0.92rem);
+  font-size: clamp(0.875rem, 0.98vw, 0.92rem);
   font-weight: 600;
   cursor: pointer;
   transition: background 0.2s ease, transform 0.15s ease, box-shadow 0.2s ease;
@@ -263,7 +263,7 @@
 
 .vvs-contact__notice {
   margin: 14px 0 0;
-  font-size: 0.84rem;
+  font-size: var(--font-small);
   color: var(--vvs-contact-teal);
   font-weight: 600;
 }
@@ -327,7 +327,7 @@
   .vvs-contact__card-lead {
     margin-top: -8px;
     margin-bottom: 16px;
-    font-size: 0.84rem;
+    font-size: var(--font-small);
     line-height: 1.5;
   }
 
@@ -362,7 +362,7 @@
   .vvs-contact__field select,
   .vvs-contact__field textarea {
     padding: 12px 14px;
-    font-size: 16px;
+    font-size: var(--font-body);
   }
 
   .vvs-contact__btn {
@@ -372,7 +372,7 @@
   }
 
   .vvs-contact__notice {
-    font-size: 0.82rem;
+    font-size: var(--font-small);
     line-height: 1.45;
   }
 

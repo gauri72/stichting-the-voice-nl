@@ -115,16 +115,6 @@
   line-height: 1.05;
 }
 
-.footer-desktop-brand__tagline {
-  margin: 5px 0 0;
-  font-size: clamp(0.58rem, 0.85vw, 0.68rem);
-  font-weight: 600;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
-  color: rgba(255, 255, 255, 0.82);
-  line-height: 1.25;
-}
-
 .footer-desktop-brand__vline {
   width: 1px;
   align-self: stretch;
@@ -279,18 +269,13 @@
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 8px;
-}
-
-.footer-desktop-quick-col {
-  display: flex;
-  flex-direction: column;
-  gap: 8px;
-  min-width: 0;
+  align-items: start;
 }
 
 .footer-desktop-quick-link {
   display: flex;
   align-items: center;
+  justify-content: center;
   gap: 8px;
   min-height: 40px;
   padding: 8px 12px;
@@ -301,13 +286,10 @@
   font-size: clamp(0.72rem, 0.95vw, 0.82rem);
   font-weight: 600;
   line-height: 1.2;
+  text-align: center;
   text-decoration: none;
   text-transform: capitalize;
   transition: border-color 0.2s ease, background 0.2s ease;
-}
-
-.footer-desktop-quick-link--full {
-  grid-column: 1 / -1;
 }
 
 .footer-desktop-quick-link__icon {
@@ -326,15 +308,8 @@
 }
 
 .footer-desktop-quick-link__label {
-  flex: 1 1 auto;
+  flex: 0 1 auto;
   min-width: 0;
-}
-
-.footer-desktop-quick-link__chevron {
-  flex-shrink: 0;
-  color: rgba(255, 255, 255, 0.55);
-  font-size: 0.85rem;
-  font-weight: 700;
 }
 
 .footer-desktop-quick-link:hover {

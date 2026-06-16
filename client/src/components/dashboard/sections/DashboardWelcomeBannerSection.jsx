@@ -45,19 +45,21 @@ export default function DashboardWelcomeBannerSection({ displayName }) {
         </h1>
       </div>
 
-      <div className="dash-welcome__top-actions">
-        <Link to={DASHBOARD_ROUTES.profile} className="dash-welcome__badge dash-welcome__btn--profile">
-          <FaIdCard aria-hidden className="dash-welcome__badge-icon" />
-          My Profile
-        </Link>
-        <button
-          type="button"
-          className="dash-welcome__badge dash-welcome__btn--logout"
-          onClick={handleLogout}
-        >
-          <FaSignOutAlt aria-hidden className="dash-welcome__badge-icon" />
-          Log Out
-        </button>
+      <div className="dash-welcome__bottom-panel">
+        <div className="dash-welcome__account-actions">
+          <Link to={DASHBOARD_ROUTES.profile} className="dash-welcome__badge dash-welcome__btn--profile">
+            <FaIdCard aria-hidden className="dash-welcome__badge-icon" />
+            My Profile
+          </Link>
+          <button
+            type="button"
+            className="dash-welcome__badge dash-welcome__btn--logout"
+            onClick={handleLogout}
+          >
+            <FaSignOutAlt aria-hidden className="dash-welcome__badge-icon" />
+            Log Out
+          </button>
+        </div>
       </div>
     </header>
   );

@@ -121,7 +121,7 @@
 
 .admin-login-brand__small {
   margin: 0;
-  font-size: 0.62rem;
+  font-size: var(--font-small);
   font-weight: 700;
   letter-spacing: 0.24em;
   color: rgba(248, 250, 252, 0.88);
@@ -155,7 +155,7 @@
   margin: 6px 0 0;
   max-width: 34ch;
   margin-inline: auto;
-  font-size: 0.58rem;
+  font-size: var(--font-small);
   font-weight: 600;
   letter-spacing: 0.08em;
   line-height: 1.45;
@@ -216,7 +216,7 @@
 
 .admin-login-heading__subtitle {
   margin: 8px 0 0;
-  font-size: clamp(0.78rem, 2.2vw, 0.88rem);
+  font-size: clamp(0.875rem, 2.2vw, 0.88rem);
   line-height: 1.5;
   color: var(--al-muted);
 }
@@ -246,7 +246,7 @@
 .admin-login-form__field label {
   display: block;
   margin-bottom: 8px;
-  font-size: 0.82rem;
+  font-size: var(--font-small);
   font-weight: 600;
   color: var(--al-text);
 }
@@ -264,7 +264,7 @@
 }
 
 .admin-login-form__forgot {
-  font-size: 0.76rem;
+  font-size: var(--font-small);
   font-weight: 600;
   color: var(--al-purple);
   text-decoration: none;
@@ -335,7 +335,7 @@
   display: inline-flex;
   align-items: center;
   gap: 8px;
-  font-size: 0.8rem;
+  font-size: var(--font-small);
   color: var(--al-text);
   cursor: pointer;
 }
@@ -348,7 +348,7 @@
 
 .admin-login-form__error {
   margin: 0;
-  font-size: 0.8rem;
+  font-size: var(--font-small);
   font-weight: 600;
   color: #f87171;
 }
@@ -388,7 +388,7 @@
   gap: 12px;
   margin: 18px 0 16px;
   color: var(--al-muted);
-  font-size: 0.72rem;
+  font-size: var(--font-small);
   font-weight: 700;
   letter-spacing: 0.08em;
 }
@@ -411,7 +411,7 @@
   background: transparent;
   color: var(--al-teal);
   font-family: inherit;
-  font-size: 0.84rem;
+  font-size: var(--font-small);
   font-weight: 700;
   cursor: not-allowed;
   opacity: 0.72;
@@ -428,7 +428,7 @@
   justify-content: center;
   gap: 8px;
   margin: 18px 0 0;
-  font-size: 0.78rem;
+  font-size: var(--font-small);
   color: var(--al-muted);
   text-align: center;
 }
@@ -457,7 +457,7 @@
 
 .admin-login-footer p {
   margin: 0;
-  font-size: 0.72rem;
+  font-size: var(--font-small);
   color: var(--al-muted);
 }
 
@@ -485,7 +485,7 @@
   }
 
   .admin-login-brand__tagline {
-    font-size: 0.54rem;
+    font-size: var(--font-small);
   }
 
   .admin-login-heading {
@@ -498,7 +498,7 @@
   }
 
   .admin-login-form__input-wrap input {
-    font-size: 16px;
+    font-size: var(--font-body);
   }
 
   .admin-login-form__label-row {

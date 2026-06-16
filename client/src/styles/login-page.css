@@ -1,0 +1,40 @@
+/* Log In / Sign Up page shell */
+
+.login-page-shell {
+  --login-bg: #060b14;
+  --login-surface: #0b111a;
+  --login-surface-soft: #101722;
+  --login-border: rgba(255, 255, 255, 0.12);
+  --login-text: #f4f7fb;
+  --login-muted: #9fb0c4;
+  --login-accent: #2ec4c7;
+  --login-grad: linear-gradient(120deg, #1f86c9 0%, #149aa6 52%, #2fa84f 100%);
+  --login-grad-outline: #1aa7c4;
+  background: var(--login-bg);
+  color: var(--login-text);
+  font-family: var(--font-poppins);
+  padding-bottom: clamp(24px, 4vw, 40px);
+}
+
+[data-theme="light"] .login-page-shell {
+  --login-bg: var(--color-bg);
+  --login-surface: var(--color-surface-elevated);
+  --login-surface-soft: var(--color-surface);
+  --login-border: var(--color-border);
+  --login-text: var(--color-heading);
+  --login-muted: var(--color-text-muted);
+  --login-accent: var(--color-accent-teal);
+  --login-grad-outline: var(--color-accent-teal);
+}
+
+.login-grad-text {
+  background: var(--login-grad);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: transparent;
+}
+
+.login-accent {
+  color: var(--login-accent);
+}

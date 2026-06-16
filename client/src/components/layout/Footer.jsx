@@ -1,7 +1,6 @@
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import {
-  IconArrowRight,
   IconBrandFacebook,
   IconBrandInstagram,
   IconBrandLinkedin,
@@ -10,7 +9,6 @@ import {
   IconBrandYoutube,
   IconBuilding,
   IconBulb,
-  IconClipboard,
   IconCrown,
   IconGift,
   IconHeart,
@@ -44,44 +42,18 @@ function buildWhatsAppHref() {
   return `https://wa.me/${digits}`;
 }
 
-const footerMobileQuickLinksLeft = [
+const footerQuickLinks = [
   { label: "Home", to: "/", Icon: IconHome },
-  { label: "Experiences", to: "/events", Icon: IconSparkles },
+  { label: "Experience", to: "/events", Icon: IconSparkles },
+  { label: "Become a member", to: "/membership", Icon: IconCrown },
+  { label: "Sponsor us", to: "/sponsorship", Icon: IconHeartHandshake },
+  { label: "Donate", to: "/donate", Icon: IconGift },
   { label: "Stories", to: "/stories", Icon: IconMicrophone },
   { label: "Impact", to: "/impact", Icon: IconHeartHandshake },
   { label: "Innovation", to: "/voice-venture-studio", Icon: IconBulb },
-  { label: "Become A Member", to: "/membership", Icon: IconCrown },
+  { label: "About us", to: "/about-us", Icon: IconUsers },
+  { label: "Policies, terms & conditions", to: "/privacy-policy", Icon: IconShield },
 ];
-
-const footerMobileQuickLinksRight = [
-  { label: "Sponsor Us", to: "/sponsorship", Icon: IconHeartHandshake },
-  { label: "Donate", to: "/donate", Icon: IconGift },
-  { label: "About Us", to: "/about-us", Icon: IconUsers },
-  { label: "Privacy Policy", to: "/privacy-policy", Icon: IconShield },
-  { label: "Terms & Conditions", to: "/terms-and-conditions", Icon: IconClipboard },
-];
-
-const footerDesktopQuickLinksLeft = [
-  { label: "Home", to: "/", Icon: IconHome },
-  { label: "Stories", to: "/stories", Icon: IconMicrophone },
-  { label: "Impact", to: "/impact", Icon: IconHeartHandshake },
-  { label: "Innovation", to: "/voice-venture-studio", Icon: IconBulb },
-  { label: "Become A Member", to: "/membership", Icon: IconCrown },
-];
-
-const footerDesktopQuickLinksRight = [
-  { label: "Experiences", to: "/events", Icon: IconSparkles },
-  { label: "Sponsor Us", to: "/sponsorship", Icon: IconHeartHandshake },
-  { label: "Donate", to: "/donate", Icon: IconGift },
-  { label: "About Us", to: "/about-us", Icon: IconUsers },
-  { label: "Privacy Policy", to: "/privacy-policy", Icon: IconShield },
-];
-
-const footerDesktopQuickLinkFull = {
-  label: "Terms & Conditions",
-  to: "/terms-and-conditions",
-  Icon: IconClipboard,
-};
 
 const socialLinks = [
   {
@@ -137,19 +109,13 @@ function FooterMobileDivider({ variant = "dot" }) {
   );
 }
 
-function FooterDesktopQuickLink({ label, to, Icon, fullWidth = false }) {
+function FooterDesktopQuickLink({ label, to, Icon }) {
   return (
-    <Link
-      to={to}
-      className={`footer-desktop-quick-link${fullWidth ? " footer-desktop-quick-link--full" : ""}`}
-    >
+    <Link to={to} className="footer-desktop-quick-link">
       <span className="footer-desktop-quick-link__icon">
         <Icon aria-hidden stroke={1.75} />
       </span>
       <span className="footer-desktop-quick-link__label">{label}</span>
-      <span className="footer-desktop-quick-link__chevron" aria-hidden="true">
-        &gt;
-      </span>
     </Link>
   );
 }
@@ -247,10 +213,7 @@ export default function Footer() {
               alt=""
               loading="lazy"
             />
-            <div className="footer-mobile-hero__brand-text">
-              <p className="footer-mobile-hero__brand-name">V.O.I.C.E. NL</p>
-              <p className="footer-mobile-hero__brand-tagline">Stichting The V.O.I.C.E. NL</p>
-            </div>
+            <p className="footer-mobile-hero__brand-name">V.O.I.C.E. NL</p>
           </div>
 
           <FooterMobileDivider />
@@ -263,9 +226,6 @@ export default function Footer() {
           >
             <IconBrandWhatsapp className="footer-mobile-whatsapp-btn__icon" aria-hidden stroke={1.75} />
             <span>Join WhatsApp Group</span>
-            <span className="footer-mobile-whatsapp-btn__arrow" aria-hidden="true">
-              <IconArrowRight stroke={2} />
-            </span>
           </a>
         </div>
 
@@ -283,32 +243,17 @@ export default function Footer() {
         <section className="footer-mobile-section" aria-label="Quick links">
           <FooterSectionTitle>Quick Links</FooterSectionTitle>
           <div className="footer-mobile-quick-grid">
-            <div className="footer-mobile-quick-col">
-              {footerMobileQuickLinksLeft.map(({ label, to, Icon }) => (
-                <Link key={to} to={to} className="footer-mobile-quick-link">
-                  <span className="footer-mobile-quick-link__icon">
-                    <Icon aria-hidden stroke={1.75} />
-                  </span>
-                  <span className="footer-mobile-quick-link__label">{label}</span>
-                  <span className="footer-mobile-quick-link__chevron" aria-hidden="true">
-                    &gt;
-                  </span>
-                </Link>
-              ))}
-            </div>
-            <div className="footer-mobile-quick-col">
-              {footerMobileQuickLinksRight.map(({ label, to, Icon }) => (
-                <Link key={to} to={to} className="footer-mobile-quick-link">
-                  <span className="footer-mobile-quick-link__icon">
-                    <Icon aria-hidden stroke={1.75} />
-                  </span>
-                  <span className="footer-mobile-quick-link__label">{label}</span>
-                  <span className="footer-mobile-quick-link__chevron" aria-hidden="true">
-                    &gt;
-                  </span>
-                </Link>
-              ))}
-            </div>
+            {footerQuickLinks.map(({ label, to, Icon }) => (
+              <Link key={to} to={to} className="footer-mobile-quick-link">
+                <span className="footer-mobile-quick-link__icon">
+                  <Icon aria-hidden stroke={1.75} />
+                </span>
+                <span className="footer-mobile-quick-link__label">{label}</span>
+                <span className="footer-mobile-quick-link__chevron" aria-hidden="true">
+                  &gt;
+                </span>
+              </Link>
+            ))}
           </div>
         </section>
 
@@ -396,7 +341,6 @@ export default function Footer() {
               />
               <div className="footer-desktop-brand__identity">
                 <p className="footer-desktop-brand__name">V.O.I.C.E. NL</p>
-                <p className="footer-desktop-brand__tagline">Stichting The V.O.I.C.E. NL</p>
               </div>
               <span className="footer-desktop-brand__vline" aria-hidden="true" />
               <p className="footer-desktop-brand__mission">
@@ -434,22 +378,9 @@ export default function Footer() {
           <section className="footer-desktop-nav__quick" aria-label="Quick links">
             <h3 className="footer-desktop-section-title">Quick Links</h3>
             <div className="footer-desktop-quick-grid">
-              <div className="footer-desktop-quick-col">
-                {footerDesktopQuickLinksLeft.map(({ label, to, Icon }) => (
-                  <FooterDesktopQuickLink key={to} label={label} to={to} Icon={Icon} />
-                ))}
-              </div>
-              <div className="footer-desktop-quick-col">
-                {footerDesktopQuickLinksRight.map(({ label, to, Icon }) => (
-                  <FooterDesktopQuickLink key={to} label={label} to={to} Icon={Icon} />
-                ))}
-              </div>
-              <FooterDesktopQuickLink
-                label={footerDesktopQuickLinkFull.label}
-                to={footerDesktopQuickLinkFull.to}
-                Icon={footerDesktopQuickLinkFull.Icon}
-                fullWidth
-              />
+              {footerQuickLinks.map(({ label, to, Icon }) => (
+                <FooterDesktopQuickLink key={to} label={label} to={to} Icon={Icon} />
+              ))}
             </div>
           </section>
 

@@ -76,7 +76,7 @@
 
 .membership-comparison-table__tier-name {
   display: block;
-  font-size: clamp(0.78rem, 1vw, 0.92rem);
+  font-size: clamp(0.875rem, 1vw, 0.92rem);
   line-height: 1.15;
   margin-bottom: 4px;
 }
@@ -88,13 +88,13 @@
 .membership-comparison-table__tier-price {
   display: block;
   color: var(--mct-price);
-  font-size: clamp(0.82rem, 1.05vw, 0.98rem);
+  font-size: clamp(0.875rem, 1.05vw, 0.98rem);
   font-weight: 700;
   line-height: 1.1;
 }
 
 .membership-comparison-table__tier-period {
-  font-size: 0.82em;
+  font-size: var(--font-small);
   font-weight: 600;
 }
 
@@ -147,7 +147,7 @@
 }
 
 .membership-comparison-table__value {
-  font-size: clamp(0.76rem, 0.95vw, 0.9rem);
+  font-size: clamp(0.875rem, 0.95vw, 0.9rem);
   font-weight: 700;
 }
 
@@ -197,23 +197,23 @@
   }
 
   .membership-comparison-table__benefits-head {
-    font-size: 0.82rem;
+    font-size: var(--font-small);
   }
 
   .membership-comparison-table__benefit {
-    font-size: 0.68rem;
+    font-size: var(--font-small);
     line-height: 1.3;
     word-break: break-word;
   }
 
   .membership-comparison-table__tier-name {
-    font-size: 0.58rem;
+    font-size: var(--font-small);
     line-height: 1.1;
     margin-bottom: 2px;
   }
 
   .membership-comparison-table__tier-price {
-    font-size: 0.58rem;
+    font-size: var(--font-small);
     white-space: nowrap;
   }
 
@@ -223,11 +223,11 @@
   }
 
   .membership-comparison-table__value {
-    font-size: 0.58rem;
+    font-size: var(--font-small);
   }
 
   .membership-comparison-table__dash {
-    font-size: 0.82rem;
+    font-size: var(--font-small);
   }
 
   .membership-comparison-table__check svg {
@@ -258,19 +258,19 @@
   }
 
   .membership-comparison-table__benefits-head {
-    font-size: 0.72rem;
+    font-size: var(--font-small);
   }
 
   .membership-comparison-table__benefit {
-    font-size: 0.56rem;
+    font-size: var(--font-small);
   }
 
   .membership-comparison-table__tier-name {
-    font-size: 0.5rem;
+    font-size: var(--font-small);
   }
 
   .membership-comparison-table__tier-price {
-    font-size: 0.5rem;
+    font-size: var(--font-small);
     white-space: nowrap;
   }
 
@@ -281,7 +281,7 @@
   }
 
   .membership-comparison-table__value {
-    font-size: 0.5rem;
+    font-size: var(--font-small);
   }
 
   .membership-comparison-table__check svg {
@@ -301,19 +301,19 @@
   }
 
   .membership-comparison-table__benefits-head {
-    font-size: 0.64rem;
+    font-size: var(--font-small);
   }
 
   .membership-comparison-table__benefit {
-    font-size: 0.5rem;
+    font-size: var(--font-small);
   }
 
   .membership-comparison-table__tier-name {
-    font-size: 0.44rem;
+    font-size: var(--font-small);
   }
 
   .membership-comparison-table__tier-price {
-    font-size: 0.44rem;
+    font-size: var(--font-small);
     white-space: nowrap;
   }
 
@@ -323,7 +323,7 @@
   }
 
   .membership-comparison-table__value {
-    font-size: 0.44rem;
+    font-size: var(--font-small);
   }
 
   .membership-comparison-table__check svg {

@@ -49,7 +49,7 @@
   flex-wrap: wrap;
   gap: 6px;
   padding: 10px clamp(12px, 3vw, 24px) 0;
-  font-size: 0.78rem;
+  font-size: var(--font-small);
   font-weight: 600;
 }
 
@@ -82,7 +82,8 @@
 }
 
 .about-us-hero__copy {
-  max-width: 920px;
+  width: 100%;
+  max-width: none;
 }
 
 .about-us-hero__title {
@@ -103,36 +104,10 @@
 
 .about-us-hero__description {
   margin: 12px 0 0;
-  max-width: 62ch;
+  max-width: none;
   color: var(--au-muted);
-  font-size: clamp(0.78rem, 2.2vw, 0.95rem);
+  font-size: clamp(0.875rem, 2.2vw, 0.95rem);
   line-height: 1.55;
-}
-
-.about-us-hero__media {
-  margin-top: 14px;
-  border-radius: 12px;
-  overflow: hidden;
-  border: 1px solid var(--au-border);
-  line-height: 0;
-}
-
-.about-us-hero__image {
-  display: block;
-  width: 100%;
-  height: auto;
-}
-
-.about-us-hero__image--dark {
-  display: none;
-}
-
-[data-theme="dark"] .about-us-hero__image--light {
-  display: none;
-}
-
-[data-theme="dark"] .about-us-hero__image--dark {
-  display: block;
 }
 
 /* Mission */
@@ -189,7 +164,7 @@
 .about-us-mission__text {
   margin: 0;
   color: var(--au-muted);
-  font-size: clamp(0.78rem, 2.1vw, 0.92rem);
+  font-size: clamp(0.875rem, 2.1vw, 0.92rem);
   line-height: 1.55;
 }
 
@@ -261,7 +236,7 @@
 .about-us-what-card__text {
   margin: 8px 0 0;
   color: var(--au-muted);
-  font-size: clamp(0.72rem, 2vw, 0.84rem);
+  font-size: clamp(0.875rem, 2vw, 0.84rem);
   line-height: 1.45;
 }
 
@@ -270,7 +245,7 @@
   align-items: center;
   gap: 6px;
   margin-top: 10px;
-  font-size: 0.78rem;
+  font-size: var(--font-small);
   font-weight: 700;
   text-decoration: none;
 }
@@ -344,7 +319,7 @@
 
 .about-us-values-section__item-title {
   margin: 8px 0 0;
-  font-size: 0.72rem;
+  font-size: var(--font-small);
   font-weight: 800;
   letter-spacing: 0.05em;
   text-transform: uppercase;
@@ -353,7 +328,7 @@
 .about-us-values-section__item-text {
   margin: 4px 0 0;
   color: var(--au-muted);
-  font-size: 0.62rem;
+  font-size: var(--font-small);
   line-height: 1.35;
 }
 
@@ -408,7 +383,7 @@
 .about-us-impact__label {
   margin: 4px 0 0;
   color: var(--au-muted);
-  font-size: clamp(0.68rem, 2vw, 0.78rem);
+  font-size: clamp(0.875rem, 2vw, 0.78rem);
   line-height: 1.3;
 }
 
@@ -479,17 +454,6 @@
 /* Desktop */
 
 @media (min-width: 900px) {
-  .about-us-hero {
-    display: grid;
-    grid-template-columns: minmax(0, 1fr) minmax(0, 1.1fr);
-    gap: 18px;
-    align-items: center;
-  }
-
-  .about-us-hero__media {
-    margin-top: 0;
-  }
-
   .about-us-what-we-do__grid {
     grid-template-columns: repeat(4, minmax(0, 1fr));
   }

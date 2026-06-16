@@ -68,7 +68,7 @@
 .sponsorship-why-section__item-title {
   margin: 10px 0 0;
   color: var(--sws-text);
-  font-size: clamp(0.78rem, 1vw, 0.95rem);
+  font-size: clamp(0.875rem, 1vw, 0.95rem);
   font-weight: 800;
   line-height: 1.25;
 }
@@ -76,7 +76,7 @@
 .sponsorship-why-section__item-text {
   margin: 8px 0 0;
   color: var(--sws-muted);
-  font-size: clamp(0.62rem, 0.82vw, 0.78rem);
+  font-size: clamp(0.875rem, 0.82vw, 0.78rem);
   line-height: 1.45;
 }
 
@@ -147,6 +147,6 @@
   }
 
   .sponsorship-why-section__item-text {
-    font-size: 0.76rem;
+    font-size: var(--font-small);
   }
 }

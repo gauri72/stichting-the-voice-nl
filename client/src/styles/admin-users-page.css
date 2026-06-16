@@ -73,7 +73,7 @@
   color: var(--ad-muted);
   font-weight: 600;
   text-transform: uppercase;
-  font-size: 0.75rem;
+  font-size: var(--font-small);
   letter-spacing: 0.05em;
 }
 
@@ -142,7 +142,7 @@
   align-items: center;
   padding: 4px 10px;
   border-radius: 8px;
-  font-size: 0.78rem;
+  font-size: var(--font-small);
   font-weight: 600;
 }
 
@@ -165,7 +165,7 @@
   align-items: center;
   padding: 4px 10px;
   border-radius: 8px;
-  font-size: 0.78rem;
+  font-size: var(--font-small);
   font-weight: 600;
 }
 
@@ -192,7 +192,7 @@
   background: transparent;
   color: var(--ad-text);
   font: inherit;
-  font-size: 0.8rem;
+  font-size: var(--font-small);
   font-weight: 600;
   cursor: pointer;
   transition: all 0.2s ease;

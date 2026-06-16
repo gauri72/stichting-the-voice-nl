@@ -92,7 +92,7 @@
 .signature-event-icon {
   width: 20px;
   height: 20px;
-  font-size: 20px;
+  font-size: var(--font-section-title);
   line-height: 1;
   flex-shrink: 0;
 }

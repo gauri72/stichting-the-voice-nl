@@ -109,7 +109,7 @@
 }
 
 .admin-upload-dropzone-hint {
-  font-size: 0.8rem;
+  font-size: var(--font-small);
   color: var(--ad-muted);
   margin: 0;
 }
@@ -150,7 +150,7 @@
 }
 
 .admin-upload-file-size {
-  font-size: 0.78rem;
+  font-size: var(--font-small);
   color: var(--ad-muted);
   margin: 2px 0 0 0;
 }
@@ -161,7 +161,7 @@
   color: var(--ad-text);
   padding: 6px 12px;
   border-radius: 8px;
-  font-size: 0.8rem;
+  font-size: var(--font-small);
   font-weight: 600;
   cursor: pointer;
   transition: all 0.2s ease;

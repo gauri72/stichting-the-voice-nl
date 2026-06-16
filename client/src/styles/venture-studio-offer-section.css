@@ -45,7 +45,7 @@
 
 .vvs-offer__card p {
   margin: 10px 0 0;
-  font-size: 0.82rem;
+  font-size: var(--font-small);
   line-height: 1.6;
   color: var(--vvs-muted);
 }

@@ -65,7 +65,7 @@
   border-radius: 999px;
   background: linear-gradient(90deg, #f0b429 0%, #e5a020 100%);
   color: #1a1200;
-  font-size: 0.58rem;
+  font-size: var(--font-small);
   font-weight: 800;
   letter-spacing: 0.08em;
   white-space: nowrap;
@@ -108,7 +108,7 @@
 .sponsorship-plans-card__title {
   margin: 0;
   color: var(--spc-text);
-  font-size: clamp(0.82rem, 1vw, 0.98rem);
+  font-size: clamp(0.875rem, 1vw, 0.98rem);
   font-weight: 800;
   line-height: 1.2;
 }
@@ -129,7 +129,7 @@
 .sponsorship-plans-card__description {
   margin: 10px 0 0;
   color: #ffffff;
-  font-size: clamp(0.68rem, 0.82vw, 0.76rem);
+  font-size: clamp(0.875rem, 0.82vw, 0.76rem);
   line-height: 1.45;
   min-height: 4.5em;
 }
@@ -150,7 +150,7 @@
   gap: 8px;
   margin-bottom: 8px;
   color: var(--spc-text);
-  font-size: clamp(0.66rem, 0.8vw, 0.74rem);
+  font-size: clamp(0.875rem, 0.8vw, 0.74rem);
   line-height: 1.35;
 }
 
@@ -175,7 +175,7 @@
   background: transparent;
   color: currentColor;
   font-family: inherit;
-  font-size: clamp(0.62rem, 0.78vw, 0.72rem);
+  font-size: clamp(0.875rem, 0.78vw, 0.72rem);
   font-weight: 700;
   letter-spacing: 0.04em;
   text-transform: uppercase;
@@ -353,7 +353,7 @@
     display: inline-block;
     margin: 0 0 8px;
     padding: 3px 8px;
-    font-size: 0.46rem;
+    font-size: var(--font-small);
     box-shadow: 0 0 10px rgba(240, 180, 41, 0.35);
   }
 
@@ -448,7 +448,7 @@
   .sponsorship-plans-card__description {
     margin-top: 8px;
     min-height: 0;
-    font-size: 0.72rem;
+    font-size: var(--font-small);
     line-height: 1.45;
     text-align: left;
   }
@@ -466,7 +466,7 @@
 
   .sponsorship-plans-card__features li {
     margin-bottom: 6px;
-    font-size: 0.68rem;
+    font-size: var(--font-small);
     gap: 6px;
     align-items: flex-start;
   }
@@ -495,7 +495,7 @@
     max-width: none;
     min-height: 42px;
     padding: 10px 14px;
-    font-size: 0.68rem;
+    font-size: var(--font-small);
     line-height: 1.2;
     align-self: stretch;
     white-space: normal;
@@ -523,28 +523,28 @@
   }
 
   .sponsorship-plans-card__title {
-    font-size: 0.84rem;
+    font-size: var(--font-small);
   }
 
   .sponsorship-plans-card__price {
-    font-size: 0.8rem;
+    font-size: var(--font-small);
   }
 
   .sponsorship-plans-card__description {
-    font-size: 0.68rem;
+    font-size: var(--font-small);
   }
 
   .sponsorship-plans-card__features li {
-    font-size: 0.64rem;
+    font-size: var(--font-small);
   }
 
   .sponsorship-plans-card__cta {
     min-height: 40px;
-    font-size: 0.62rem;
+    font-size: var(--font-small);
   }
 
   .sponsorship-plans-card__badge--mobile {
-    font-size: 0.4rem;
+    font-size: var(--font-small);
     padding: 2px 6px;
   }
 }

@@ -50,7 +50,7 @@
   color: var(--vvs-white);
   display: grid;
   place-items: center;
-  font-size: 0.7rem;
+  font-size: var(--font-small);
   margin-top: 2px;
 }
 
@@ -58,7 +58,7 @@
   margin: 20px 0 0;
   font-weight: 700;
   color: var(--vvs-navy);
-  font-size: 1rem;
+  font-size: var(--font-body);
 }
 
 .vvs-futures__brush {
@@ -70,7 +70,7 @@
   background: var(--vvs-teal);
   color: var(--vvs-white);
   font-weight: 800;
-  font-size: 0.82rem;
+  font-size: var(--font-small);
   line-height: 1.35;
   text-align: center;
   transform: rotate(-4deg);

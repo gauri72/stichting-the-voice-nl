@@ -1,43 +1,50 @@
-import heroBackground from "../../assets/Log In/hero-bg.png";
+import heroBgLight from "../../assets/Home/hero-bg-light.png";
+import heroBgDark from "../../assets/Home/hero-bg-dark.png";
+import BreadcrumbPageHeader from "../layout/BreadcrumbPageHeader.jsx";
 import "../../styles/login-breadcrumb-section.css";
 
+const HERO_COPY = {
+  login: {
+    titleLead: "Welcome Back!",
+    titleAccent: "Sign in to your account",
+    intro:
+      "Access your memberships, donations, event registrations and update your account details.",
+  },
+  signup: {
+    titleLead: "Join Us Today!",
+    titleAccent: "Create your account",
+    intro:
+      "Create an account to manage memberships, donations, event registrations, and your profile.",
+  },
+  "forgot-password": {
+    titleLead: "Forgot Password?",
+    titleAccent: "We will help you reset it",
+    intro: "Enter your email and we will send you a link to choose a new password.",
+  },
+};
+
 export default function LoginBreadcrumbSection({ mode = "login" }) {
-  const isSignUp = mode === "signup";
-  const isForgotPassword = mode === "forgot-password";
+  const copy = HERO_COPY[mode] || HERO_COPY.login;
 
   return (
-    <section
-      className="login-page-hero"
-      aria-labelledby="login-hero-title"
-      style={{ backgroundImage: `url(${heroBackground})` }}
-    >
-      <div className="login-page-hero__container">
-        <h1 id="login-hero-title">
-          {isSignUp ? (
-            <>
-              <span className="login-page-hero__title-line">Join Us Today!</span>
-              <span className="login-page-hero__title-gradient">Create your account</span>
-            </>
-          ) : isForgotPassword ? (
-            <>
-              <span className="login-page-hero__title-line">Forgot Password?</span>
-              <span className="login-page-hero__title-gradient">We will help you reset it</span>
-            </>
-          ) : (
-            <>
-              <span className="login-page-hero__title-line">Welcome Back!</span>
-              <span className="login-page-hero__title-gradient">Sign in to your account</span>
-            </>
-          )}
-        </h1>
-        <p className="login-page-hero__intro">
-          {isSignUp
-            ? "Create an account to manage memberships, donations, event registrations, and your profile."
-            : isForgotPassword
-              ? "Enter your email and we will send you a link to choose a new password."
-              : "Access your memberships, donations, event registrations and update your account details."}
-        </p>
-      </div>
-    </section>
+    <>
+      <BreadcrumbPageHeader
+        ariaLabel="Log in or sign up"
+        lightSrc={heroBgLight}
+        darkSrc={heroBgDark}
+        heroClassName="login-page-hero"
+        fetchPriority="high"
+      />
+
+      <section className="login-hero" aria-labelledby="login-hero-title">
+        <div className="login-hero__copy">
+          <h1 id="login-hero-title" className="login-hero__title">
+            {copy.titleLead}{" "}
+            <span className="login-grad-text">{copy.titleAccent}</span>
+          </h1>
+          <p className="login-hero__intro">{copy.intro}</p>
+        </div>
+      </section>
+    </>
   );
 }

@@ -32,7 +32,7 @@
   display: inline-flex;
   align-items: center;
   gap: 6px;
-  font-size: 0.76rem;
+  font-size: var(--font-small);
   font-weight: 700;
   color: var(--md-cyan, #1aa7c4);
   text-decoration: none;
@@ -190,13 +190,13 @@
 .dash-activity__body small {
   display: block;
   margin-top: 2px;
-  font-size: 0.76rem;
+  font-size: var(--font-small);
   color: var(--md-text-soft);
   line-height: 1.35;
 }
 
 .dash-activity__content time {
-  font-size: 0.7rem;
+  font-size: var(--font-small);
   color: var(--md-text-faint);
   white-space: nowrap;
 }

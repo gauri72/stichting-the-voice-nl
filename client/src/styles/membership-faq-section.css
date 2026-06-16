@@ -195,7 +195,7 @@
   color: #13405f;
   background: var(--color-bg);
   text-decoration: none;
-  font-size: 0.85rem;
+  font-size: var(--font-small);
   font-weight: 700;
   display: inline-flex;
   align-items: center;
@@ -253,7 +253,7 @@
 
   .membership-faq__panel p {
     padding: 0 10px 11px 40px;
-    font-size: 0.87rem;
+    font-size: var(--font-small);
   }
 
   .membership-faq__cta {
