@@ -9,8 +9,17 @@
 
 .footer-mobile-hero {
   text-align: center;
-  padding-bottom: 18px;
-  margin-bottom: 6px;
+  padding-bottom: 0;
+  margin-bottom: 0;
+}
+
+.footer-mobile-hero__heart {
+  display: block;
+  width: 22px;
+  height: 22px;
+  margin: 0 auto 10px;
+  color: #49bee7;
+  filter: drop-shadow(0 0 8px rgba(73, 190, 231, 0.45));
 }
 
 .footer-mobile-hero__title {
@@ -21,8 +30,13 @@
   color: #ffffff;
 }
 
+.footer-mobile-hero__subtitle-wrap {
+  display: inline-block;
+  margin: 4px auto 0;
+}
+
 .footer-mobile-hero__subtitle {
-  margin: 4px 0 0;
+  margin: 0;
   font-size: clamp(1.55rem, 6.2vw, 2rem);
   font-weight: 800;
   line-height: 1.08;
@@ -33,39 +47,96 @@
 }
 
 .footer-mobile-hero__subtitle-green {
-  color: #79bb57;
+  color: #6fdc6f;
+}
+
+.footer-mobile-hero__subtitle-green-light {
+  color: #8fd96a;
+}
+
+.footer-mobile-divider {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  margin: 14px 0;
+  gap: 0;
+}
+
+.footer-mobile-divider__line {
+  flex: 1;
+  height: 1px;
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    rgba(73, 190, 231, 0.2) 8%,
+    rgba(73, 190, 231, 0.55) 50%,
+    rgba(73, 190, 231, 0.2) 92%,
+    transparent 100%
+  );
+}
+
+.footer-mobile-divider__dot {
+  width: 7px;
+  height: 7px;
+  margin: 0 10px;
+  border-radius: 50%;
+  background: rgba(73, 190, 231, 0.9);
+  box-shadow: 0 0 10px rgba(73, 190, 231, 0.45);
+  flex-shrink: 0;
+}
+
+.footer-mobile-divider__heart {
+  width: 16px;
+  height: 16px;
+  margin: 0 12px;
+  color: #49bee7;
+  filter: drop-shadow(0 0 6px rgba(73, 190, 231, 0.4));
+  flex-shrink: 0;
 }
 
 .footer-mobile-hero__brand {
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   align-items: center;
-  gap: 8px;
-  margin: 16px auto 14px;
+  justify-content: center;
+  gap: clamp(10px, 3vw, 14px);
+  margin: 0 auto;
+  max-width: 100%;
+  text-align: left;
 }
 
 .footer-mobile-hero__logo {
-  width: clamp(72px, 22vw, 96px);
+  width: clamp(58px, 17vw, 76px);
   height: auto;
+  flex-shrink: 0;
   object-fit: contain;
+}
+
+.footer-mobile-hero__brand-text {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  min-width: 0;
 }
 
 .footer-mobile-hero__brand-name {
   margin: 0;
-  font-size: clamp(0.95rem, 3.8vw, 1.15rem);
+  font-size: clamp(1.25rem, 5.4vw, 1.65rem);
   font-weight: 800;
-  letter-spacing: 0.06em;
+  letter-spacing: 0.05em;
   text-transform: uppercase;
   color: #ffffff;
+  line-height: 1.05;
 }
 
 .footer-mobile-hero__brand-tagline {
   margin: 0;
-  font-size: clamp(0.52rem, 2vw, 0.62rem);
+  font-size: clamp(0.54rem, 2.1vw, 0.64rem);
   font-weight: 600;
-  letter-spacing: 0.14em;
+  letter-spacing: 0.12em;
   text-transform: uppercase;
   color: rgba(255, 255, 255, 0.82);
+  line-height: 1.25;
 }
 
 .footer-mobile-whatsapp-btn {
@@ -89,9 +160,15 @@
   transition: filter 0.2s ease, transform 0.15s ease;
 }
 
+.footer-mobile-whatsapp-btn__icon {
+  width: clamp(26px, 7vw, 32px);
+  height: clamp(26px, 7vw, 32px);
+  flex-shrink: 0;
+}
+
 .footer-mobile-whatsapp-btn svg:first-of-type {
-  width: 20px;
-  height: 20px;
+  width: clamp(26px, 7vw, 32px);
+  height: clamp(26px, 7vw, 32px);
   flex-shrink: 0;
 }
 
@@ -119,6 +196,10 @@
 
 .footer-mobile-section {
   padding: 16px 0 6px;
+}
+
+.footer-mobile-hero + .footer-mobile-section {
+  padding-top: 6px;
 }
 
 .footer-mobile-section-title {
@@ -267,15 +348,23 @@
 
 .footer-mobile-contact-card {
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   align-items: flex-start;
-  gap: 6px;
-  min-height: 108px;
-  padding: 12px 10px;
+  gap: 8px;
+  min-height: 0;
+  padding: 10px 8px;
   border-radius: 12px;
   border: 1px solid rgba(73, 190, 231, 0.4);
   background: rgba(0, 18, 40, 0.6);
   text-align: left;
+}
+
+.footer-mobile-contact-card__body {
+  flex: 1 1 auto;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
 }
 
 .footer-mobile-contact-card__icon {
@@ -286,6 +375,7 @@
   height: 34px;
   border-radius: 50%;
   color: #ffffff;
+  flex-shrink: 0;
 }
 
 .footer-mobile-contact-card__icon svg {
@@ -338,9 +428,9 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 10px;
-  margin-top: 20px;
-  padding-top: 16px;
+  gap: 12px;
+  margin-top: 8px;
+  padding-top: 4px;
   text-align: center;
 }
 
@@ -366,30 +456,80 @@
   background: linear-gradient(90deg, transparent, #79bb57 45%, transparent);
 }
 
+.footer-mobile-credit__brand {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  width: 100%;
+  max-width: 320px;
+  text-align: left;
+}
+
 .footer-mobile-credit__logo {
-  width: clamp(140px, 52vw, 200px);
+  width: clamp(42px, 12vw, 52px);
   height: auto;
+  flex-shrink: 0;
   object-fit: contain;
+}
+
+.footer-mobile-credit__brand-text {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+  min-width: 0;
+}
+
+.footer-mobile-credit__name {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  margin: 0;
+  line-height: 1.05;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.footer-mobile-credit__name-voice {
+  font-size: clamp(0.92rem, 3.6vw, 1.08rem);
+  font-weight: 800;
+  color: #ffffff;
+}
+
+.footer-mobile-credit__name-studio {
+  font-size: clamp(0.72rem, 2.85vw, 0.86rem);
+  font-weight: 800;
+  color: #79bb57;
+}
+
+.footer-mobile-credit__tagline {
+  margin: 0;
+  font-size: clamp(0.48rem, 1.85vw, 0.56rem);
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.72);
 }
 
 .footer-mobile-copyright {
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 6px;
-  margin: 14px 0 0;
-  font-size: clamp(0.52rem, 2vw, 0.62rem);
+  gap: 8px;
+  margin: 16px 0 0;
+  font-size: clamp(0.68rem, 2.65vw, 0.82rem);
   font-weight: 500;
   line-height: 1.35;
   text-align: center;
-  color: rgba(255, 255, 255, 0.65);
+  color: rgba(255, 255, 255, 0.78);
 }
 
 .footer-mobile-copyright svg {
-  width: 14px;
-  height: 14px;
+  width: 16px;
+  height: 16px;
   flex-shrink: 0;
-  color: rgba(121, 187, 87, 0.85);
+  color: rgba(73, 190, 231, 0.9);
 }
 
 @media (max-width: 768px) {
@@ -404,11 +544,6 @@
 
 @media (min-width: 769px) {
   .footer-mobile {
-    display: none !important;
-  }
-
-  .footer-whatsapp-fab,
-  .footer-whatsapp-widget {
     display: none !important;
   }
 }
@@ -428,7 +563,6 @@
   }
 
   .footer-mobile-contact-card {
-    min-height: 100px;
-    padding: 10px 8px;
+    padding: 9px 7px;
   }
 }

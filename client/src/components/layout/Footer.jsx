@@ -13,16 +13,17 @@ import {
   IconClipboard,
   IconCrown,
   IconGift,
+  IconHeart,
   IconHeartHandshake,
   IconHome,
   IconMail,
   IconMapPin,
   IconMicrophone,
+  IconPhone,
   IconSend,
   IconShield,
   IconSparkles,
   IconUsers,
-  IconWorld,
   IconX,
 } from "@tabler/icons-react";
 import { apiFetch } from "../../utils/api.js";
@@ -32,6 +33,7 @@ import voiceNlLogo from "../../assets/logos/V.O.I.C.E. NL Copyright HD Logo.png"
 import voiceVentureStudioLogo from "../../assets/VOICE Venture Studio.png";
 import "../../styles/footer.css";
 import "../../styles/footer-mobile.css";
+import "../../styles/footer-desktop.css";
 
 function buildWhatsAppHref() {
   const raw = import.meta.env.VITE_WHATSAPP_E164;
@@ -41,25 +43,6 @@ function buildWhatsAppHref() {
       : "31619032104";
   return `https://wa.me/${digits}`;
 }
-
-const footerNavLinks = [
-  { label: "Home", to: "/" },
-  { label: "Experience", to: "/events" },
-  { label: "Stories", to: "/stories" },
-  { label: "Impact", to: "/impact" },
-  { label: "Innovation", to: "/voice-venture-studio" },
-  { label: "Become A Member", to: "/membership" },
-  { label: "Sponsor Us", to: "/sponsorship" },
-  { label: "Donate", to: "/donate" },
-  { label: "About Us", to: "/about-us" },
-];
-
-const footerLegalLinks = [
-  { label: "Privacy Policy", to: "/privacy-policy" },
-  { label: "Terms & Conditions", to: "/terms-and-conditions" },
-];
-
-const footerSiteLinks = [...footerNavLinks, ...footerLegalLinks];
 
 const footerMobileQuickLinksLeft = [
   { label: "Home", to: "/", Icon: IconHome },
@@ -77,6 +60,28 @@ const footerMobileQuickLinksRight = [
   { label: "Privacy Policy", to: "/privacy-policy", Icon: IconShield },
   { label: "Terms & Conditions", to: "/terms-and-conditions", Icon: IconClipboard },
 ];
+
+const footerDesktopQuickLinksLeft = [
+  { label: "Home", to: "/", Icon: IconHome },
+  { label: "Stories", to: "/stories", Icon: IconMicrophone },
+  { label: "Impact", to: "/impact", Icon: IconHeartHandshake },
+  { label: "Innovation", to: "/voice-venture-studio", Icon: IconBulb },
+  { label: "Become A Member", to: "/membership", Icon: IconCrown },
+];
+
+const footerDesktopQuickLinksRight = [
+  { label: "Experiences", to: "/events", Icon: IconSparkles },
+  { label: "Sponsor Us", to: "/sponsorship", Icon: IconHeartHandshake },
+  { label: "Donate", to: "/donate", Icon: IconGift },
+  { label: "About Us", to: "/about-us", Icon: IconUsers },
+  { label: "Privacy Policy", to: "/privacy-policy", Icon: IconShield },
+];
+
+const footerDesktopQuickLinkFull = {
+  label: "Terms & Conditions",
+  to: "/terms-and-conditions",
+  Icon: IconClipboard,
+};
 
 const socialLinks = [
   {
@@ -118,6 +123,63 @@ function FooterSectionTitle({ children }) {
   );
 }
 
+function FooterMobileDivider({ variant = "dot" }) {
+  return (
+    <div className="footer-mobile-divider" aria-hidden="true">
+      <span className="footer-mobile-divider__line" />
+      {variant === "heart" ? (
+        <IconHeart className="footer-mobile-divider__heart" stroke={1.75} />
+      ) : (
+        <span className="footer-mobile-divider__dot" />
+      )}
+      <span className="footer-mobile-divider__line" />
+    </div>
+  );
+}
+
+function FooterDesktopQuickLink({ label, to, Icon, fullWidth = false }) {
+  return (
+    <Link
+      to={to}
+      className={`footer-desktop-quick-link${fullWidth ? " footer-desktop-quick-link--full" : ""}`}
+    >
+      <span className="footer-desktop-quick-link__icon">
+        <Icon aria-hidden stroke={1.75} />
+      </span>
+      <span className="footer-desktop-quick-link__label">{label}</span>
+      <span className="footer-desktop-quick-link__chevron" aria-hidden="true">
+        &gt;
+      </span>
+    </Link>
+  );
+}
+
+function FooterDesktopContactCard({ label, value, href, accent, Icon }) {
+  return (
+    <article className={`footer-desktop-contact-card footer-desktop-contact-card--${accent}`}>
+      <span className="footer-desktop-contact-card__icon">
+        <Icon aria-hidden stroke={1.75} />
+      </span>
+      <div className="footer-desktop-contact-card__body">
+        <span className="footer-desktop-contact-card__label">{label}</span>
+        <p className="footer-desktop-contact-card__value">
+          {href ? (
+            <a
+              href={href}
+              target={href.startsWith("http") ? "_blank" : undefined}
+              rel={href.startsWith("http") ? "noopener noreferrer" : undefined}
+            >
+              {value}
+            </a>
+          ) : (
+            value
+          )}
+        </p>
+      </div>
+    </article>
+  );
+}
+
 export default function Footer() {
   const [contactEmail, setContactEmail] = useState(DEFAULT_CONTACT_EMAIL);
   const [isChatOpen, setIsChatOpen] = useState(false);
@@ -151,34 +213,47 @@ export default function Footer() {
       Icon: IconMail,
     },
     {
-      label: "Website",
-      value: "stichtingthevoice.nl",
-      href: "https://stichtingthevoice.nl",
+      label: "Mobile",
+      value: "+31619032104",
+      href: "tel:+31619032104",
       accent: "teal",
-      Icon: IconWorld,
+      Icon: IconPhone,
     },
   ];
+
+  const desktopContactCards = contactCards;
 
   return (
     <footer className="site-footer site-footer--with-bg" style={{ "--footer-bg-image": `url(${footerBg})` }}>
       <div className="footer-mobile">
         <div className="footer-mobile-hero">
+          <IconHeart className="footer-mobile-hero__heart" aria-hidden stroke={1.75} />
+
           <h2 className="footer-mobile-hero__title">Together, We Can</h2>
-          <p className="footer-mobile-hero__subtitle">
-            <span className="footer-mobile-hero__subtitle-blue">Create a Better </span>
-            <span className="footer-mobile-hero__subtitle-green">Tomorrow.</span>
-          </p>
+          <div className="footer-mobile-hero__subtitle-wrap">
+            <p className="footer-mobile-hero__subtitle">
+              <span className="footer-mobile-hero__subtitle-blue">Create a </span>
+              <span className="footer-mobile-hero__subtitle-green">Better</span>
+              <span className="footer-mobile-hero__subtitle-green-light"> Tomorrow.</span>
+            </p>
+          </div>
+
+          <FooterMobileDivider />
 
           <div className="footer-mobile-hero__brand">
             <img
               className="footer-mobile-hero__logo"
               src={voiceNlLogo}
-              alt="V.O.I.C.E. NL"
+              alt=""
               loading="lazy"
             />
-            <p className="footer-mobile-hero__brand-name">V.O.I.C.E. NL</p>
-            <p className="footer-mobile-hero__brand-tagline">Stichting The V.O.I.C.E. NL</p>
+            <div className="footer-mobile-hero__brand-text">
+              <p className="footer-mobile-hero__brand-name">V.O.I.C.E. NL</p>
+              <p className="footer-mobile-hero__brand-tagline">Stichting The V.O.I.C.E. NL</p>
+            </div>
           </div>
+
+          <FooterMobileDivider />
 
           <a
             className="footer-mobile-whatsapp-btn"
@@ -186,7 +261,7 @@ export default function Footer() {
             target="_blank"
             rel="noopener noreferrer"
           >
-            <IconBrandWhatsapp aria-hidden stroke={1.75} />
+            <IconBrandWhatsapp className="footer-mobile-whatsapp-btn__icon" aria-hidden stroke={1.75} />
             <span>Join WhatsApp Group</span>
             <span className="footer-mobile-whatsapp-btn__arrow" aria-hidden="true">
               <IconArrowRight stroke={2} />
@@ -248,33 +323,51 @@ export default function Footer() {
                 <span className="footer-mobile-contact-card__icon">
                   <Icon aria-hidden stroke={1.75} />
                 </span>
-                <span className="footer-mobile-contact-card__label">{label}</span>
-                <p className="footer-mobile-contact-card__value">
-                  {href ? (
-                    <a href={href} target={href.startsWith("http") ? "_blank" : undefined} rel="noopener noreferrer">
-                      {value}
-                    </a>
-                  ) : (
-                    value
-                  )}
-                </p>
+                <div className="footer-mobile-contact-card__body">
+                  <span className="footer-mobile-contact-card__label">{label}</span>
+                  <p className="footer-mobile-contact-card__value">
+                    {href ? (
+                      <a
+                        href={href}
+                        target={href.startsWith("http") ? "_blank" : undefined}
+                        rel={href.startsWith("http") ? "noopener noreferrer" : undefined}
+                      >
+                        {value}
+                      </a>
+                    ) : (
+                      value
+                    )}
+                  </p>
+                </div>
               </article>
             ))}
           </div>
         </section>
 
         <div className="footer-mobile-credit" aria-label="Designed and developed by V.O.I.C.E. Venture Studio">
+          <FooterMobileDivider variant="heart" />
+
           <p className="footer-mobile-credit__heading">
             <span className="footer-mobile-credit__heading-line" aria-hidden="true" />
             <span>Proudly Designed &amp; Developed By</span>
             <span className="footer-mobile-credit__heading-line" aria-hidden="true" />
           </p>
-          <img
-            className="footer-mobile-credit__logo"
-            src={voiceVentureStudioLogo}
-            alt="V.O.I.C.E. Venture Studio — Digital, Design, Innovation"
-            loading="lazy"
-          />
+
+          <div className="footer-mobile-credit__brand">
+            <img
+              className="footer-mobile-credit__logo"
+              src={voiceVentureStudioLogo}
+              alt=""
+              loading="lazy"
+            />
+            <div className="footer-mobile-credit__brand-text">
+              <div className="footer-mobile-credit__name">
+                <span className="footer-mobile-credit__name-voice">V.O.I.C.E.</span>
+                <span className="footer-mobile-credit__name-studio">VENTURE STUDIO</span>
+              </div>
+              <p className="footer-mobile-credit__tagline">Digital • Design • Innovation</p>
+            </div>
+          </div>
         </div>
 
         <p className="footer-mobile-copyright">
@@ -283,109 +376,133 @@ export default function Footer() {
         </p>
       </div>
 
-      <div className="footer-main footer-desktop">
-        <div className="footer-impact-strip">
-          <div className="footer-impact-copy">
-            <h2 className="footer-impact-title">Together, We Can</h2>
-            <p className="footer-impact-subtitle">
-              <span className="footer-impact-subtitle-blue">Create a </span>
-              <span className="footer-impact-subtitle-green">Better Tomorrow.</span>
-            </p>
+      <div className="footer-desktop">
+        <div className="footer-desktop-hero">
+          <div className="footer-desktop-hero__main">
+            <div className="footer-desktop-hero__headline">
+              <h2 className="footer-desktop-hero__title">Together, We Can</h2>
+              <p className="footer-desktop-hero__subtitle">
+                <span className="footer-desktop-hero__subtitle-blue">Create a </span>
+                <span className="footer-desktop-hero__subtitle-green">Better Tomorrow.</span>
+              </p>
+            </div>
+
+            <div className="footer-desktop-brand">
+              <img
+                className="footer-desktop-brand__logo"
+                src={voiceNlLogo}
+                alt=""
+                loading="lazy"
+              />
+              <div className="footer-desktop-brand__identity">
+                <p className="footer-desktop-brand__name">V.O.I.C.E. NL</p>
+                <p className="footer-desktop-brand__tagline">Stichting The V.O.I.C.E. NL</p>
+              </div>
+              <span className="footer-desktop-brand__vline" aria-hidden="true" />
+              <p className="footer-desktop-brand__mission">
+                We believe in positive change, inclusive communities, and empowering people to build a
+                better future together.
+              </p>
+            </div>
           </div>
 
-          <div
-            className="footer-venture-credit footer-venture-credit--impact"
-            aria-label="This website is designed and developed by V.O.I.C.E. Venture Studio"
-          >
-            <img
-              className="footer-venture-logo"
-              src={voiceVentureStudioLogo}
-              alt="V.O.I.C.E. Venture Studio"
-              loading="lazy"
-            />
-            <p className="footer-designed-by">
-              This website is
-              <br />
-              designed &amp; developed by
-              <br />
-              V.O.I.C.E. Venture Studio
-            </p>
-          </div>
-
-          <div className="footer-impact-donate">
+          <aside className="footer-desktop-hero__aside">
             <a
-              className="footer-impact-donate-btn footer-impact-whatsapp-btn"
+              className="footer-desktop-whatsapp-btn"
               href={WHATSAPP_GROUP_URL}
               target="_blank"
               rel="noopener noreferrer"
             >
               <IconBrandWhatsapp aria-hidden stroke={1.75} />
-              Join WhatsApp group
+              Join WhatsApp Group
             </a>
-          </div>
+
+            <div className="footer-desktop-follow">
+              <p className="footer-desktop-follow__title">Follow Us</p>
+              <div className="footer-desktop-social">
+                {socialLinks.map(({ href, label, Icon }) => (
+                  <a key={label} href={href} target="_blank" rel="noopener noreferrer" aria-label={label}>
+                    <Icon aria-hidden stroke={1.75} />
+                  </a>
+                ))}
+              </div>
+            </div>
+          </aside>
         </div>
 
-        <div className="footer-columns footer-columns--main">
-          <div className="footer-col footer-col-follow">
-            <h3 className="footer-section-title">Follow us</h3>
-            <div className="footer-social-list footer-social-list--footer">
-              {socialLinks.map(({ href, label, Icon }) => (
-                <a key={label} href={href} target="_blank" rel="noopener noreferrer" aria-label={label}>
-                  <Icon aria-hidden stroke={1.75} />
-                </a>
+        <div className="footer-desktop-nav">
+          <section className="footer-desktop-nav__quick" aria-label="Quick links">
+            <h3 className="footer-desktop-section-title">Quick Links</h3>
+            <div className="footer-desktop-quick-grid">
+              <div className="footer-desktop-quick-col">
+                {footerDesktopQuickLinksLeft.map(({ label, to, Icon }) => (
+                  <FooterDesktopQuickLink key={to} label={label} to={to} Icon={Icon} />
+                ))}
+              </div>
+              <div className="footer-desktop-quick-col">
+                {footerDesktopQuickLinksRight.map(({ label, to, Icon }) => (
+                  <FooterDesktopQuickLink key={to} label={label} to={to} Icon={Icon} />
+                ))}
+              </div>
+              <FooterDesktopQuickLink
+                label={footerDesktopQuickLinkFull.label}
+                to={footerDesktopQuickLinkFull.to}
+                Icon={footerDesktopQuickLinkFull.Icon}
+                fullWidth
+              />
+            </div>
+          </section>
+
+          <span className="footer-desktop-nav__vline" aria-hidden="true" />
+
+          <section className="footer-desktop-nav__contact" id="contact-desktop" aria-label="Contact us">
+            <h3 className="footer-desktop-section-title">Contact Us</h3>
+            <div className="footer-desktop-contact-grid">
+              {desktopContactCards.map((card) => (
+                <FooterDesktopContactCard key={card.label} {...card} />
               ))}
             </div>
-          </div>
-
-          <div className="footer-col footer-col-quick footer-col-links-legal">
-            <h3 className="footer-section-title">Quick links</h3>
-            <div className="footer-quick-grid footer-nav-grid">
-              <ul className="footer-quick-row footer-nav-links">
-                {footerSiteLinks.map((item) => (
-                  <li key={item.to}>
-                    <Link to={item.to}>{item.label}</Link>
-                  </li>
-                ))}
-              </ul>
-            </div>
-          </div>
-
-          <div className="footer-col footer-col-contact">
-            <h3 className="footer-section-title">Contact us</h3>
-            <div className="footer-brand-details footer-brand-details--standalone">
-              <p>
-                <span className="footer-brand-details-label">KVK</span>
-                <span className="footer-brand-details-value">92180213</span>
-              </p>
-              <p>
-                <span className="footer-brand-details-label">Address</span>
-                <span className="footer-brand-details-value">
-                  Wengehout 30,
-                  <br />
-                  2719 KA Zoetermeer,
-                  <br />
-                  The Netherlands
-                </span>
-              </p>
-              <p>
-                <span className="footer-brand-details-label">Email</span>
-                <a className="footer-brand-details-value footer-email" href={`mailto:${contactEmail}`}>
-                  {contactEmail}
-                </a>
-              </p>
-              <p>
-                <span className="footer-brand-details-label">Office Phone</span>
-                <span className="footer-brand-details-value">+31619032104</span>
-              </p>
-            </div>
-          </div>
+          </section>
         </div>
 
-        <div className="footer-main-bottom">
-          <p className="footer-tagline-celebrate">
-            Together, we celebrate creativity, diversity, and harmony through art and culture.
+        <div
+          className="footer-desktop-partner"
+          aria-label="Designed and developed by V.O.I.C.E. Venture Studio"
+        >
+          <p className="footer-desktop-partner__label">Proudly Designed &amp; Developed By</p>
+
+          <span className="footer-desktop-partner__vline" aria-hidden="true" />
+
+          <div className="footer-desktop-partner__brand">
+            <img
+              className="footer-desktop-partner__logo"
+              src={voiceVentureStudioLogo}
+              alt=""
+              loading="lazy"
+            />
+            <div className="footer-desktop-partner__brand-text">
+              <span className="footer-desktop-partner__name-voice">V.O.I.C.E.</span>
+              <span className="footer-desktop-partner__name-studio">VENTURE STUDIO</span>
+            </div>
+            <p className="footer-desktop-partner__tagline">Digital • Design • Innovation</p>
+          </div>
+
+          <span className="footer-desktop-partner__vline" aria-hidden="true" />
+
+          <p className="footer-desktop-partner__blurb">
+            <span className="footer-desktop-partner__blurb-line">
+              V.O.I.C.E. Venture Studio is a digital solutions partner empowering brands with design,
+            </span>
+            <span className="footer-desktop-partner__blurb-line">development and innovation.</span>
           </p>
-          <p className="footer-copyright">© 2026 Stichting The V.O.I.C.E. NL. All rights reserved.</p>
+        </div>
+
+        <div className="footer-desktop-bottom">
+          <hr className="footer-desktop-divider footer-desktop-bottom__divider" aria-hidden="true" />
+          <p className="footer-desktop-copyright">
+            <IconShield aria-hidden stroke={1.75} />
+            <span>© 2026 Stichting The V.O.I.C.E. NL. All rights reserved.</span>
+          </p>
         </div>
       </div>
 
